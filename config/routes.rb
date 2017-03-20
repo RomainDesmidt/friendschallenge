@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'pages#home'
+  devise_for :users
 
   resources :races, only: [ :index, :show ]
 
   namespace :account do
-    resource :races, only [ :index ] do
+    resource :profile, only: [ :show ]
+
+    resources :races, only: [ :index ] do
       member do
-        patch 'confirm'
+        patch :confirm
       end
     end
-    resource :profile, only [ :show ]
   end
 
   # static pages
