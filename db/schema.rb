@@ -10,10 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320162350) do
+ActiveRecord::Schema.define(version: 20170320172632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "races", force: :cascade do |t|
+    t.text     "description"
+    t.string   "name"
+    t.string   "place"
+    t.integer  "distance"
+    t.date     "date"
+    t.integer  "price"
+    t.string   "official_event_url"
+    t.string   "picture"
+    t.string   "trail_map_url"
+    t.string   "trail_map_picture"
+    t.string   "level"
+    t.string   "status"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "races_sports", force: :cascade do |t|
+    t.integer  "race_id"
+    t.integer  "sport_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["race_id"], name: "index_races_sports_on_race_id", using: :btree
+    t.index ["sport_id"], name: "index_races_sports_on_sport_id", using: :btree
+  end
+
+  create_table "shared_races", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "user_race_id"
+    t.string   "status"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_shared_races_on_user_id", using: :btree
+    t.index ["user_race_id"], name: "index_shared_races_on_user_race_id", using: :btree
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_races", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "race_id"
+    t.string   "status"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["race_id"], name: "index_user_races_on_race_id", using: :btree
+    t.index ["user_id"], name: "index_user_races_on_user_id", using: :btree
+  end
+
+  create_table "user_sports", force: :cascade do |t|
+    t.integer  "sport_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sport_id"], name: "index_user_sports_on_sport_id", using: :btree
+    t.index ["user_id"], name: "index_user_sports_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +90,23 @@ ActiveRecord::Schema.define(version: 20170320162350) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "profile_picture"
+    t.string   "medical_certifate"
+    t.date     "medical_certifate_date"
+    t.string   "level"
+    t.string   "address"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "races_sports", "races"
+  add_foreign_key "races_sports", "sports"
+  add_foreign_key "shared_races", "user_races"
+  add_foreign_key "shared_races", "users"
+  add_foreign_key "user_races", "races"
+  add_foreign_key "user_races", "users"
+  add_foreign_key "user_sports", "sports"
+  add_foreign_key "user_sports", "users"
 end
