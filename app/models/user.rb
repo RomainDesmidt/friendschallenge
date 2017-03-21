@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :user_sports
   has_many :sports, through: :user_sports
-  has_many :user_races
-  has_many :races, through: :user_races
-  has_many :shared_races
+  has_many :race_groups
+  has_many :races, through: :race_groups
+  has_many :group_memberships
 end
