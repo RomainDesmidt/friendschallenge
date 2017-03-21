@@ -9,74 +9,83 @@
 
 
 # races: description/name/place/distance//date/price/officiel_event_link/picture_race/trail_map_url/trail_map_picture/level/status
+
+@level = ["débutant", "intermédiaire", "expert"]
+@status = [true, false]
+
 quiberon_triathlons = Race.create! (
   name: "Triathlons de Quiberon",
   description:"Triathlons | Olympic | Sprint | Kids | Relay |",
   place: "Quiberon",
   distance: "[Swim: 1.5 km, Bike: 40 km, Run: 10 km]",
   date: "02/09/17",
-  price: "30",
+  price: 30,
   officiel_event_link: "http://quiberontriathlon.fr/?page_id=2",
   trail_map_url: "http://quiberontriathlon.fr/wp-content/uploads/2017/02/EPREUVE-M-2017.pdf",
   trail_map_picture: "",
   level: "",
-  status:"",
+  status: @status.sample,
+  picture:,
 )
 
 lorient_triathlons = Race.create!(
   name: "Triathlons de Lorient",
   description:"Triathlons | Olympic | Sprint | Kids | Relay |",
   place: "Lorient",
-  distance: "[Swim: 1.5 km, Bike: 40 km, Run: 10 km]",
+  distance: ["Swim: 1.5", "Bike: 40", "Run: 10"],
   date: "28/08/17",
-  price: "25",
+  price: 25,
   officiel_event_link: "http://triduter.lorienttriathlon.fr/",
   trail_map_url: "http://triduter.lorienttriathlon.fr/2016/06/15/s-sprint/",
   trail_map_picture: "http://triduter.lorienttriathlon.fr/2016/06/15/s-sprint/",
   level: "",
-  status:"",
+  status: @status.sample,
+  picture:,
 )
 
 anjou_m = Race.create!(
   name: "Anjou_Swimrun",
   description:"Swimrun",
   place: "Angers",
-  distance: "swim: 4,623 Km | run: 21,747 Km",
+  distance: ["swim: 4,623", "run: 21,747"],
   date: "23/04/2018",
-  price: "130",
+  price: 130,
   officiel_event_link: "http://angersswimrun.onlinetri.com/",
   trail_map_url: "",
   trail_map_picture: "",
   level: "",
-  status:"",
+  status: @status.sample,
+  picture:,
 )
 
 anjou_s = Race.create!(
   name: "Anjou_Swimrun",
   description:"Swimrun",
   place: "Angers",
-  distance: "swim: 2,446 Km | run: 13,184 Km ",
+  distance: ["swim: 2,446", "run: 13,184"],
   date: "23/04/2018",
-  price: "65",
+  price: 65,
   officiel_event_link: "http://angersswimrun.onlinetri.com/",
   trail_map_url: "",
   trail_map_picture: "",
   level: "",
-  status:"",
+  status: @status.sample,
+  picture:,
 )
 
  breizh_start = Race.create!(
   name: "Breizh_Start",
   description:"Swimrun",
   place: "Fouesnant",
-  distance: "Total swim: 4 Km | run: 14 Km",
+  distance: ["swim: 4", "run: 14"],
   date: "14/05/2017",
-  price: "120",
+  price: 120,
   officiel_event_link: "http://www.colorsport-event.com/evenements/breizh-swimrun/",
   trail_map_url: "http://www.colorsport-event.com/evenements/breizh-swimrun/",
   trail_map_picture: "",
   level: "",
-  status:"",
+  status: @status.sample,
+  picture: ,
 )
 
 marathon_de_la_loire = Race.create!(
@@ -90,7 +99,7 @@ marathon_de_la_loire = Race.create!(
   trail_map_url: "http://tracedetrail.fr/fr/trace/trace/27657",
   trail_map_picture: "",
   level: "",
-  status:"",
+  status: @status.sample,
   picture: ,
 )
 
@@ -105,7 +114,8 @@ marathon_de_nantes = Race.create!(
   trail_map_url: "http://www.marathondenantes.com/wp-content/uploads/2015/11/Parcours-Marathon-2016.jpg",
   trail_map_picture: "",
   level: "",
-  status:"",
+  status: @status.sample,
+  picture: ,
 )
 
 lorient_triathlons = Race.create!(
@@ -119,7 +129,8 @@ lorient_triathlons = Race.create!(
   trail_map_url: "",
   trail_map_picture: "",
   level: "",
-  status:"",
+  status: @status.sample,,
+  picture:
 )
 
 
