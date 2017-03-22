@@ -1,2 +1,29 @@
-<h1>Races#index</h1>
-<p>Find me in app/views/races/index.html.erb</p>
+<div class="wrapper">
+  <div class="filters-wrapper">
+    <div class="box">
+      <div class="box-title">
+        <h3>Je cherche une course</h3>
+      </div>
+      <div class= "form-group form-items">
+        <!-- Insertion code propre de home page + ajout champs "Niveau" & "Prix" -->
+      </div>
+    </div>
+  </div>
+  <div class="results-wrapper">
+    <div class="container">
+      <div class="row">
+        <%= link_to race_path(race) do %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card">
+              <div class="card-photo-background">
+              </div>
+              <%= race.name %>
+              <%= race.total_distance - race.place - race.date %>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
