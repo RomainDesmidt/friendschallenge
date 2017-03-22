@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   resources :races, only: [ :index, :show ]
 
   namespace :account do
-    resource :races, only [ :index ] do
+    resource :races, only: [ :index ] do
       member do
         patch 'confirm'
       end
     end
-    resource :profile, only [ :show ]
+    resource :profile, only: [ :show ]
   end
 
   # static pages
