@@ -1,16 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'race_groups/show'
+
+  get 'profile/show'
+
+  get 'races/index'
+
+  get 'races/show'
+
   root to: 'pages#home'
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :races, only: [ :index, :show ]
 
   namespace :account do
-    resource :races, only: [ :index ] do
+    resource :profile, only: [ :show ]
+
+    resources :races, only: [ :index ] do
       member do
-        patch 'confirm'
+        patch :confirm
       end
     end
-    resource :profile, only: [ :show ]
   end
 
   # static pages

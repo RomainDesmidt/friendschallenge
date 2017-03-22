@@ -10,16 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320172632) do
+ActiveRecord::Schema.define(version: 20170322134534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "group_memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "race_group_id"
+    t.string   "status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["race_group_id"], name: "index_group_memberships_on_race_group_id", using: :btree
+    t.index ["user_id"], name: "index_group_memberships_on_user_id", using: :btree
+  end
+
+  create_table "race_groups", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "race_id"
+    t.string   "status"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["race_id"], name: "index_race_groups_on_race_id", using: :btree
+    t.index ["user_id"], name: "index_race_groups_on_user_id", using: :btree
+  end
 
   create_table "races", force: :cascade do |t|
     t.text     "description"
     t.string   "name"
     t.string   "place"
-    t.integer  "distance"
+    t.float    "total_distance"
     t.date     "date"
     t.integer  "price"
     t.string   "official_event_url"
@@ -37,35 +58,15 @@ ActiveRecord::Schema.define(version: 20170320172632) do
     t.integer  "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "distance"
     t.index ["race_id"], name: "index_races_sports_on_race_id", using: :btree
     t.index ["sport_id"], name: "index_races_sports_on_sport_id", using: :btree
-  end
-
-  create_table "shared_races", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "user_race_id"
-    t.string   "status"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_shared_races_on_user_id", using: :btree
-    t.index ["user_race_id"], name: "index_shared_races_on_user_race_id", using: :btree
   end
 
   create_table "sports", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "user_races", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "race_id"
-    t.string   "status"
-    t.string   "token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["race_id"], name: "index_user_races_on_race_id", using: :btree
-    t.index ["user_id"], name: "index_user_races_on_user_id", using: :btree
   end
 
   create_table "user_sports", force: :cascade do |t|
@@ -97,16 +98,21 @@ ActiveRecord::Schema.define(version: 20170320172632) do
     t.date     "medical_certifate_date"
     t.string   "level"
     t.string   "address"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "facebook_picture_url"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "group_memberships", "race_groups"
+  add_foreign_key "group_memberships", "users"
+  add_foreign_key "race_groups", "races"
+  add_foreign_key "race_groups", "users"
   add_foreign_key "races_sports", "races"
   add_foreign_key "races_sports", "sports"
-  add_foreign_key "shared_races", "user_races"
-  add_foreign_key "shared_races", "users"
-  add_foreign_key "user_races", "races"
-  add_foreign_key "user_races", "users"
   add_foreign_key "user_sports", "sports"
   add_foreign_key "user_sports", "users"
 end

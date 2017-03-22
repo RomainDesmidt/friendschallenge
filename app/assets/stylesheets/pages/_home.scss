@@ -2,3 +2,38 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.wrapper-cover-picture {
+  background-size: cover;
+  background-image: url('http://cdn.paper4pc.com/images/mountains-nature-wallpaper-5.jpg');
+
+}
+
+.slogan {
+  color: white;
+  .h3 {
+    line-height: 30px;
+    font-size: 25px;
+  }
+  // width: ;
+  // height: ;
+  }
+
+.swimming {
+  padding:20px;
+  background-image: url('http://www.leisurecentre.com/Content/images/Swim%20Lessons%20Children%202_920x550.jpg');
+}
+
+.running {
+  padding:20px;
+  background-image: url('https://static1.squarespace.com/static/557b65c2e4b00283cf1ca9b0/t/5585d703e4b0d4f1a8bc4dc2/1434834698106/shutterstock_139712587.jpg');
+}
+
+.cycling {
+  padding:20px;
+  background-image: url('http://www.ilovebicycling.com/wp-content/uploads/2014/03/yourpreridechecklist.jpg');
+}
+
+
+.hide_checkbox {
+  display: none;
+}
