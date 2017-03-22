@@ -11,7 +11,7 @@
 User.destroy_all
 Race.destroy_all
 Sport.destroy_all
-RaceSport.destroy_all
+RaceSports.destroy_all
 RaceGroup.destroy_all
 UserSports.destroy_all
 UserRaces.destroy_all
@@ -29,10 +29,9 @@ momo = User.create!(
   first_name: "momo",
   last_name: "Batman",
   address: "Angers",
-  facebook_id: ,
   email: "momo@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -43,10 +42,9 @@ john = User.create!(
   first_name: "john",
   last_name: "Mckaine",
   address: "Dallas",
-  facebook_id: ,
   email: "john@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -60,7 +58,7 @@ lee = User.create!(
   facebook_id: ,
   email: "lee@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -74,7 +72,7 @@ chuck = User.create!(
   facebook_id: ,
   email: "chuck@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -88,7 +86,7 @@ larry = User.create!(
   facebook_id: ,
   email: "larry@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -102,7 +100,7 @@ charles = User.create!(
   facebook_id: ,
   email: "charles@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -116,7 +114,7 @@ tony = User.create!(
   facebook_id: ,
   email: "tony@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -130,7 +128,7 @@ kylian = User.create!(
   facebook_id: ,
   email: "kylian@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -144,7 +142,7 @@ lebron = User.create!(
   facebook_id: ,
   email: "lebron@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -158,7 +156,7 @@ michael = User.create!(
   facebook_id: ,
   email: "michael@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -172,7 +170,7 @@ david = User.create!(
   facebook_id: ,
   email: "david@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
@@ -186,7 +184,7 @@ jody = User.create!(
   facebook_id: ,
   email: "laurent@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
   medical_certifate_date: Date.new(2018,4,30),
   medical_certifate:"photo",
   profile_picture:"photo",
