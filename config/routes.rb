@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'race_groups/show'
+
+  get 'profile/show'
+
+  get 'races/index'
+
+  get 'races/show'
+
   root to: 'pages#home'
   devise_for :users
 
