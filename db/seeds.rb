@@ -11,10 +11,11 @@
 User.destroy_all
 Race.destroy_all
 Sport.destroy_all
-Race_Sport.destroy_all
-Shared_Races.destroy_all
-User_Sports.destroy_all
-User_Races.destroy_all
+RaceSport.destroy_all
+RaceGroup.destroy_all
+UserSports.destroy_all
+UserRaces.destroy_all
+GroupMembership.destroy_all
 
 # /////////////////////////////////////////////////////////////////////////////////////////////
 # ////////////////////////////////////////////////////////////////////////////////////////////
@@ -201,107 +202,114 @@ jody = User.create!(
 level = ["débutant", "intermédiaire", "expert"]
 status_race = ["exist", "open", "closed"]
 sport = ["natation", "course à pied", "cyclisme", "triathlon", "swimrun" ]
+index = 1
 
 quiberon_triathlons = Race.create! (
   name: "Triathlons de Quiberon",
   description:"Triathlons | Olympic | Sprint | Kids | Relay | Swim: 1.5 km, Bike: 40 km, Run: 10 km",
   place: "Quiberon",
-  Total_distance: 52,
+  total_distance: 52,
   date: Date.new(2017,9,2),
   price: 30,
   officiel_event_link: "http://quiberontriathlon.fr/?page_id=2",
   trail_map_url: "http://quiberontriathlon.fr/wp-content/uploads/2017/02/EPREUVE-M-2017.pdf",
-  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/#{index}.jpg")),
+  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/map#{index}.jpg")),
   level: level.sample,
   status_race: status_race.sample,
-  picture: File.new(Rails.root.join("db/fixtures/images/#{index}.jpg")),
+  picture: File.new(Rails.root.join("db/fixtures/images/triathlon1.jpg")),
 )
 
+index += 1
 lorient_triathlons = Race.create!(
   name: "Triathlons de Lorient",
   description:"Triathlons | Olympic | Sprint | Kids | Relay | Swim: 1.5, Bike: 40, Run: 10",
   place: "Lorient",
-  Total_distance: 52,
+  total_distance: 52,
   date: Date.new(2017,8,28),
   price: 25,
   officiel_event_link: "http://triduter.lorienttriathlon.fr/",
   trail_map_url: "http://triduter.lorienttriathlon.fr/2016/06/15/s-sprint/",
-  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/#{index}.jpg")),
+  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/map#{index}.jpg")),
   level: level.sample,
   status_race: status_race.sample,
   picture: File.new(Rails.root.join("db/fixtures/images/#{index}.jpg")),
 )
 
+index += 1
 anjou_m = Race.create!(
   name: "Anjou_Swimrun",
   description:"Swimrun swim: 4,623, run: 21,747",
   place: "Angers",
-  Total_distance: 26,
+  total_distance: 26,
   date: Date.new(2018,4,23),
   price: 130,
   officiel_event_link: "http://angersswimrun.onlinetri.com/",
   trail_map_url: "",
-  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/#{index}.jpg")),
+  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/map#{index}.jpg")),
   level: level.sample,
   status_race: status_race.sample,
   picture: File.new(Rails.root.join("db/fixtures/images/#{index}.jpg")),
 )
 
+index += 1
 anjou_s = Race.create!(
   name: "Anjou_Swimrun",
   description:"Swimrun swim: 2,446, run: 13,184",
   place: "Angers",
-  Total_distance: 16,
+  total_distance: 16,
   date: Date.new(2017,4,23),
   price: 65,
   officiel_event_link: "http://angersswimrun.onlinetri.com/",
   trail_map_url: "",
-  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/#{index}.jpg")),
+  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/map#{index}.jpg")),
   level: level.sample,
   status_race: status_race.sample,
   picture: File.new(Rails.root.join("db/fixtures/images/#{index}.jpg")),
 )
 
+index += 1
  breizh_start = Race.create!(
   name: "Breizh_Start",
   description:"Swimrun swim: 4, run: 14",
   place: "Fouesnant",
-  Total_distance: 18,
+  total_distance: 18,
   date: Date.new(2017,5,15),
   price: 120,
   officiel_event_link: "http://www.colorsport-event.com/evenements/breizh-swimrun/",
   trail_map_url: "http://www.colorsport-event.com/evenements/breizh-swimrun/",
-  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/#{index}.jpg")),
+  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/map4.jpg")),
   level: level.sample,
   status_race: status_race.sample,
-  picture: File.new(Rails.root.join("db/fixtures/images/#{index}.jpg")) ,
+  picture: File.new(Rails.root.join("db/fixtures/images/swim_race2.jpg")) ,
 )
 
+index += 1
 marathon_de_la_loire = Race.create!(
   name: "Marathon_de_la_Loire",
   description:"Marathon",
   place: "Saumur",
-  Total_distance: 42,
+  total_distance: 42,
   date: Date.new(2017,4,16),
   price: 70,
   officiel_event_link: "http://www.marathon-loire.fr/",
   trail_map_url: "http://tracedetrail.fr/fr/trace/trace/27657",
-  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/#{index}.jpg")),
+  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/map#{index}.jpg")),
   level: level.sample,
   status_race: status_race.sample,
   picture: File.new(Rails.root.join("db/fixtures/images/#{index}.jpg")),
 )
 
+index += 1
 marathon_de_nantes = Race.create!(
   name: "Marathon_de_Nantes",
   description:"",
   place: "Lorient",
-  Total_distance: 42,
+  total_distance: 42,
   date: Date.new(2017,4,30),
   price: 58,
   officiel_event_link: "http://www.marathondenantes.com/",
   trail_map_url: "http://www.marathondenantes.com/wp-content/uploads/2015/11/Parcours-Marathon-2016.jpg",
-  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/#{index}.jpg")),
+  trail_map_picture: File.new(Rails.root.join("db/fixtures/race_map/map#{index}.jpg")),
   level: level.sample,
   status_race: status_race.sample,
   picture: File.new(Rails.root.join("db/fixtures/images/#{index}.jpg"))
@@ -507,11 +515,62 @@ UserSport.create!(
 # ///////////////////////////////////////////////////////////////////////////////////////////
 
 # race_sports: sport_id/race_id/ distance
+# marathon de nantes
 RaceSport.create!(
-  race: ,
-  sport:
+  race: marathon_de_nantes,
+  sport: course_a_pied,
+  distance: 42
 )
 
+marathon_de_nantes.calculate_total_distance
+marathon_de_nantes.save
+
+# marathon de la loire
+RaceSport.create!(
+  race: marathon_de_la_loire,
+  sport: course_a_pied,
+  distance: 42
+)
+
+# breizh start
+RaceSport.create!(
+  race: breizh_start,
+  sport: course_a_pied,
+  distance: 14
+)
+
+RaceSport.create!(
+  race: breizh_start,
+  sport: natation
+  distance: 4
+)
+
+# Anjou M
+RaceSport.create!(
+  race: anjou_m,
+  sport: course_a_pied,
+  distance: 21
+)
+
+RaceSport.create!(
+  race: anjou_m,
+  sport: natation
+  distance: 4.6
+)
+
+
+# Anjou S
+RaceSport.create!(
+  race: anjou_s,
+  sport: course_a_pied,
+  distance: 13
+)
+
+RaceSport.create!(
+  race: anjou_s,
+  sport: natation
+  distance: 2.4
+)
 
 # /////////////////////////////////////////////////////////////////////////////////////////////
 # ////////////////////////////////////////////////////////////////////////////////////////////
