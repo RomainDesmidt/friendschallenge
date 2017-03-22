@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
+  get 'race_groups/show'
+
+  get 'profile/show'
+
+  get 'races/index'
+
+  get 'races/show'
+
   root to: 'pages#home'
-  devise_for :users
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :races, only: [ :index, :show ]
 
