@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321111447) do
+ActiveRecord::Schema.define(version: 20170322134534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170321111447) do
     t.text     "description"
     t.string   "name"
     t.string   "place"
-    t.integer  "distance"
+    t.float    "total_distance"
     t.date     "date"
     t.integer  "price"
     t.string   "official_event_url"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170321111447) do
     t.integer  "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "distance"
     t.index ["race_id"], name: "index_races_sports_on_race_id", using: :btree
     t.index ["sport_id"], name: "index_races_sports_on_sport_id", using: :btree
   end
@@ -97,6 +98,11 @@ ActiveRecord::Schema.define(version: 20170321111447) do
     t.date     "medical_certifate_date"
     t.string   "level"
     t.string   "address"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "facebook_picture_url"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
