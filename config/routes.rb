@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'races/show'
 
   root to: 'pages#home'
-  devise_for :users
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :races, only: [ :index, :show ]
 
