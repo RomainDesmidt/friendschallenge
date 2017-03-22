@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322134534) do
+ActiveRecord::Schema.define(version: 20170322161822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20170322134534) do
     t.index ["user_id"], name: "index_race_groups_on_user_id", using: :btree
   end
 
+  create_table "race_sports", force: :cascade do |t|
+    t.integer  "race_id"
+    t.integer  "sport_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float    "distance"
+    t.index ["race_id"], name: "index_race_sports_on_race_id", using: :btree
+    t.index ["sport_id"], name: "index_race_sports_on_sport_id", using: :btree
+  end
+
   create_table "races", force: :cascade do |t|
     t.text     "description"
     t.string   "name"
@@ -51,16 +61,6 @@ ActiveRecord::Schema.define(version: 20170322134534) do
     t.string   "status"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-  end
-
-  create_table "races_sports", force: :cascade do |t|
-    t.integer  "race_id"
-    t.integer  "sport_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float    "distance"
-    t.index ["race_id"], name: "index_races_sports_on_race_id", using: :btree
-    t.index ["sport_id"], name: "index_races_sports_on_sport_id", using: :btree
   end
 
   create_table "sports", force: :cascade do |t|
@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(version: 20170322134534) do
   add_foreign_key "group_memberships", "users"
   add_foreign_key "race_groups", "races"
   add_foreign_key "race_groups", "users"
-  add_foreign_key "races_sports", "races"
-  add_foreign_key "races_sports", "sports"
+  add_foreign_key "race_sports", "races"
+  add_foreign_key "race_sports", "sports"
   add_foreign_key "user_sports", "sports"
   add_foreign_key "user_sports", "users"
 end
