@@ -8,12 +8,12 @@ class Race < ApplicationRecord
   has_many :sports, through: :race_sports
 
   #validation
-  validates :name, uniqueness: ( scope: :date), presence: true
-  validates :date, presence: true
-  validates :place, presence: true
-  validates :price, presence: true
+  # validates :name, uniqueness: ( scope: :date), presence: true
+  # validates :date, presence: true
+  # validates :place, presence: true
+  # validates :price, presence: true
 
   #photo uploader
-  mount_uploader :picture, :trail_map_picture, PhotoUploader
-
+  mount_uploader :picture, PhotoUploader
+  mount_uploader :trail_map_picture, PhotoUploader
 end
