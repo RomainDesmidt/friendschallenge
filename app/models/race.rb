@@ -14,6 +14,6 @@ class Race < ApplicationRecord
   validates :price, presence: true
 
   #photo uploader
-  mount_uploader :photo, PhotoUploader
+  mount_uploader :picture, :trail_map_picture, PhotoUploader
 
 end

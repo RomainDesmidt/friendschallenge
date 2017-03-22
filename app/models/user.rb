@@ -18,6 +18,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   #photo uploader
-  mount_uploader :photo, PhotoUploader
+  mount_uploader :profile_picture, PhotoUploader
 
 end
