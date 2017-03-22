@@ -10,4 +10,9 @@ class User < ApplicationRecord
   has_many :race_groups
   has_many :races, through: :race_groups
   has_many :group_memberships
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true, uniqueness: true
+
 end
