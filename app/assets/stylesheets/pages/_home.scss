@@ -3,20 +3,68 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .wrapper-cover-picture {
+  height: 100vh;
   background-size: cover;
-  background-image: url('http://cdn.paper4pc.com/images/mountains-nature-wallpaper-5.jpg');
+ background-image: linear-gradient(-225deg, rgba(0, 100, 167, 0.4) 20%, rgba(239, 228, 19, 0.6) 40%), url("http://renatures.com/wp-content/uploads/2016/11/mountains-france-mountain-alpes-nature-annecy-forest-wallpaper-himalaya-1920x1080.jpg");
+}
+
+
+.container {
+  width: 85%;
+
+}
+.slogan {
+  color: white;
+  font-weight: normal;
 
 }
 
-.slogan {
-  color: white;
-  .h3 {
-    line-height: 30px;
-    font-size: 25px;
+.form-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1 {
+  line-height: 50px;
+  font-size: 40px;
+  padding: 30px 0;
   }
-  // width: ;
-  // height: ;
-  }
+
+h3 {
+  font-size: 20px;
+  padding-left: 20px;
+  margin-top: 5px;
+  color:#484848 ;
+}
+.box-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box {
+  border-radius: 5px;
+  background-color: rgba(250, 249, 247, 0.5);
+  padding: 10px;
+  width: 70%;
+  height: 40vh;
+}
+.form-tems {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.form-item1, .form-item2, .form-item3 {
+  margin-top: 10px;
+}
+
+
+.labels-font {
+  font-weight: normal;
+  color:#484848 ;
+}
+
 
 .swimming {
   padding:20px;
