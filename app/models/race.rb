@@ -10,5 +10,4 @@ class Race < ApplicationRecord
   validates :date, presence: true
   validates :place, presence: true
   validates :price, presence: true
-  validates :place, presence: true
 end
