@@ -16,7 +16,12 @@ Shared_Races.destroy_all
 User_Sports.destroy_all
 User_Races.destroy_all
 
+# /////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////
+
 # users nom/first_name/photoprofil/fb_id/email/certifmedic/certificate_date/level/address
+
 level = ["débutant", "intermédiaire", "expert"]
 
 momo = User.create!(
@@ -187,6 +192,9 @@ jody = User.create!(
   level: level.sample,
   )
 
+# /////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////
 
 # races: description/name/place/distance/date/price/officiel_event_link/picture_race/trail_map_url/trail_map_picture/level/status
 
@@ -299,15 +307,22 @@ marathon_de_nantes = Race.create!(
   picture: File.new(Rails.root.join("db/fixtures/images/#{index}.jpg"))
 )
 
+# /////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////
 
 # sports: name
+
 natation = Sport.create!(name: "natation")
 course_a_pied = Sport.create!(name: "course à pied")
 cyclisme = Sport.create!(name: "cyclisme")
-triathlon = Sport.create!(name: "triathlon")
-swimrun = Sport.create!(name: "swimrun")
+# triathlon = Sport.create!(name: "triathlon")
+# swimrun = Sport.create!(name: "swimrun")
 
 
+# /////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////
 
 # user_sport: sport_id/user_id/
 
@@ -319,22 +334,12 @@ UserSport.create!(
 
 UserSport.create!(
   user: momo,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: momo,
   sport: course_a_pied
 )
 
 UserSport.create!(
   user: momo,
   sport: natation
-)
-
-UserSport.create!(
-  user: momo,
-  sport: swimrun
 )
 
 # lee
@@ -345,22 +350,12 @@ UserSport.create!(
 
 UserSport.create!(
   user: lee,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: lee,
   sport: course_a_pied
 )
 
 UserSport.create!(
   user: lee,
   sport: natation
-)
-
-UserSport.create!(
-  user: lee,
-  sport: swimrun
 )
 
 # larry
@@ -371,22 +366,12 @@ UserSport.create!(
 
 UserSport.create!(
   user: larry,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: larry,
   sport: course_a_pied
 )
 
 UserSport.create!(
   user: larry,
   sport: natation
-)
-
-UserSport.create!(
-  user: larry,
-  sport: swimrun
 )
 
 # charles
@@ -397,22 +382,12 @@ UserSport.create!(
 
 UserSport.create!(
   user: charles,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: charles,
   sport: course_a_pied
 )
 
 UserSport.create!(
   user: charles,
   sport: natation
-)
-
-UserSport.create!(
-  user: charles,
-  sport: swimrun
 )
 
 # tony
@@ -423,22 +398,12 @@ UserSport.create!(
 
 UserSport.create!(
   user: tony,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: tony,
   sport: course_a_pied
 )
 
 UserSport.create!(
   user: tony,
   sport: natation
-)
-
-UserSport.create!(
-  user: tony,
-  sport: swimrun
 )
 
 # chuck
@@ -449,11 +414,6 @@ UserSport.create!(
 
 UserSport.create!(
   user: chuck,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: chuck,
   sport: course_a_pied
 )
 
@@ -462,10 +422,6 @@ UserSport.create!(
   sport: natation
 )
 
-UserSport.create!(
-  user: chuck,
-  sport: swimrun
-)
 # kylian
 UserSport.create!(
   user: kylian,
@@ -474,11 +430,6 @@ UserSport.create!(
 
 UserSport.create!(
   user: kylian,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: kylian,
   sport: course_a_pied
 )
 
@@ -487,10 +438,6 @@ UserSport.create!(
   sport: natation
 )
 
-UserSport.create!(
-  user: kylian,
-  sport: swimrun
-)
 # lebron
 UserSport.create!(
   user: lebron,
@@ -499,11 +446,6 @@ UserSport.create!(
 
 UserSport.create!(
   user: lebron,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: lebron,
   sport: course_a_pied
 )
 
@@ -512,10 +454,6 @@ UserSport.create!(
   sport: natation
 )
 
-UserSport.create!(
-  user: lebron,
-  sport: swimrun
-)
 # michael
 UserSport.create!(
   user: michael,
@@ -524,22 +462,12 @@ UserSport.create!(
 
 UserSport.create!(
   user: michael,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: michael,
   sport: course_a_pied
 )
 
 UserSport.create!(
   user: michael,
   sport: natation
-)
-
-UserSport.create!(
-  user: michael,
-  sport: swimrun
 )
 
 # david
@@ -550,22 +478,12 @@ UserSport.create!(
 
 UserSport.create!(
   user: david,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: david,
   sport: course_a_pied
 )
 
 UserSport.create!(
   user: david,
   sport: natation
-)
-
-UserSport.create!(
-  user: david,
-  sport: swimrun
 )
 
 # jody
@@ -576,11 +494,6 @@ UserSport.create!(
 
 UserSport.create!(
   user: jody,
-  sport: thriathlon
-)
-
-UserSport.create!(
-  user: jody,
   sport: course_a_pied
 )
 
@@ -589,17 +502,20 @@ UserSport.create!(
   sport: natation
 )
 
-UserSport.create!(
-  user: jody,
-  sport: swimrun
-)
-
+# /////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////
 
 # race_sports: sport_id/race_id/ distance
 RaceSport.create!(
   race: ,
   sport:
 )
+
+
+# /////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////
 
 # race_groups: user_id/race_id/status/token
 
@@ -652,9 +568,10 @@ rouge = RaceGroup.create!(
   token: SecureRandom.hex(8) #numero unique aléatoire
   )
 
-# ////////////////////
-# //////////////////////
-# /////////////////////
+# /////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////
+
 # group_memberships: user_id/user_race_id/status
 
 status_group_memberships = ["inscrit", "interessé", "pas interessé", "non répondu"]
@@ -748,5 +665,37 @@ GroupMembership.create!(
 GroupMembership.create!(
   user: charles,
   race_group: les_potos,
+  status_group_memberships: status_group_memberships.sample
+)
+
+# 6ème groupe: les_invincibles
+GroupMembership.create!(
+  user: lebron,
+  race_group: les_invincibles,
+  status_group_memberships: status_group_memberships.sample
+)
+
+GroupMembership.create!(
+  user: chuck,
+  race_group: les_invincibles,
+  status_group_memberships: status_group_memberships.sample
+)
+
+GroupMembership.create!(
+  user: larry,
+  race_group: les_invincibles,
+  status_group_memberships: status_group_memberships.sample
+)
+
+# 7ème groupe: rouge
+GroupMembership.create!(
+  user: momo,
+  race_group: rouge,
+  status_group_memberships: status_group_memberships.sample
+)
+
+GroupMembership.create!(
+  user: jody,
+  race_group: rouge,
   status_group_memberships: status_group_memberships.sample
 )
