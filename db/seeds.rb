@@ -241,6 +241,7 @@ users_attributes = [
 
 
 users_attributes.each do |user_attributes|
+  puts users_attributes[:attributes][:name]
   user = User.new(user_attributes[:attributes])
   user.medical_certificate = user_attributes[:medical_certificate]
   user.remote_profile_picture_url = user_attributes[:profile_picture_url]
@@ -483,7 +484,7 @@ races_attributes = [
 ]
 
 races_attributes.each do |race_attributes|
-  puts race_attributes[:attributes]
+  puts race_attributes[:attributes][:name]
   race = Race.new(race_attributes[:attributes])
   race.trail_map_picture = race_attributes[:trail_map_picture]
   race.picture = race_attributes[:picture]
