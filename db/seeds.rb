@@ -201,7 +201,7 @@ jody = User.create!(
 
 level = ["débutant", "intermédiaire", "expert"]
 status = ["exist", "open", "closed"]
-sport = ["swimming", "running", "cycling", "triathlon", "swimrun" ]
+sport = ["swimming", "running", "cycling"]
 index = 1
 
 quiberon_triathlons = Race.create! (
