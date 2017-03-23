@@ -12,18 +12,45 @@
   <div class="results-wrapper">
     <div class="container">
       <div class="row">
-        <%= link_to race_path(race) do %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card">
-              <div class="card-photo-background">
+        <div class="col-xs-6 col-sm-8">
+          <div class="card_show">
+          <div class="row">
+            <% @races.each do |race| %>
+              <div class="col-xs-6">
+                <%= link_to race_path(1) do %>
+                  <div class="race-card">
+                    <li class="list-group-item"><%=race.name %></li>
+                    <li class="list-group-item"><%= race.total_distance %> - <%= race.place %> - <%= race.date %></li>
+                  </div>
+                <% end %>
               </div>
-              <%= race.name %>
-              <%= race.total_distance - race.place - race.date %>
-            </div>
+             <% end %>
           </div>
-        <% end %>
+        </div>
+      </div>
+
+        <div class="col-xs-6 col-sm-4">
+          <div id="map" style="width: 80%; height: 400px;"></div>
+
+    <% content_for(:after_js) do %>
+      <script>
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @race_coordinates.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+           if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(4);
+             }
+            });
+          });
+      </script>
+      <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
