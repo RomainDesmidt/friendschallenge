@@ -63,7 +63,9 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
+
   },
 
   {
@@ -79,7 +81,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   },
 
   {
@@ -95,7 +98,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   },
 
   {
@@ -111,7 +115,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   },
 
   {
@@ -127,7 +132,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   },
 
   {
@@ -143,7 +149,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   },
 
   {
@@ -159,7 +166,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   },
 
   {
@@ -175,7 +183,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   },
 
   {
@@ -191,7 +200,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   },
 
   {
@@ -207,7 +217,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   },
 
   {
@@ -223,7 +234,8 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/"
+    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    sports_names: ["Natation", "Course à pied"]
   }
 ]
 
@@ -470,15 +482,32 @@ races_attributes = [
   }
 ]
 
-races_attributes.each do |races_attributes|
-  race = Race.new(races_attributes[:attributes])
-  race.trail_map_picture = races_attributes[:trail_map_picture]
-  race.picture = races_attributes[:picture]
-  race.calculate_total_distance
+races_attributes.each do |race_attributes|
+  puts race_attributes[:attributes]
+  race = Race.new(race_attributes[:attributes])
+  race.trail_map_picture = race_attributes[:trail_map_picture]
+  race.picture = race_attributes[:picture]
   race.save
+  sports = race_attributes[:sports]
+  natation_value = sports[:natation]
+  if natation_value
+    sport = Sport.find_by_name("Natation")
+    race_sport_natation = RaceSport.create(race: race, sport: sport, distance: natation_value)
+  end
 
+  course_value = sports[:course_a_pied]
+  if course_value
+    sport = Sport.find_by_name("Course à pied")
+    race_sport_course_a_pied = RaceSport.create(race: race, sport: sport, distance: course_value)
+  end
 
-
+  cyclisme_value = sports[:cyclisme]
+  if cyclisme_value
+    sport = Sport.find_by_name("Cyclisme")
+    race_sport_cyclisme = RaceSport.create(race: race, sport: sport, distance: cyclisme_value)
+  end
+  race.calculate_total_distance!
+  race.save
 end
 
 # # /////////////////////////////////////////////////////////////////////////////////////////////
