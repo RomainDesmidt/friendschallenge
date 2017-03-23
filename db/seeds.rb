@@ -275,8 +275,9 @@ races_attributes = [
       status: "closed" # pareil
     },
     sports: {
-      natation: 4,
-      course_a_pied: 14
+      natation: 1.5,
+      course_a_pied: 10,
+      cyclisme: 38
     },
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/triathlon_de_quiberon_m/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/triathlon_de_quiberon_m/race.jpg"))
@@ -300,6 +301,11 @@ races_attributes = [
       status: "open",
       trail_map_url: "http://triduter.lorienttriathlon.fr/2016/06/15/s-sprint/"
     },
+    sports: {
+      natation: 0.75,
+      course_a_pied: 5,
+      cyclisme: 20
+    },
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/triathlon_de_lorient/map.png")),
     picture: File.new(Rails.root.join("db/fixtures/images/triathlon_de_lorient/race.jpg"))
   },
@@ -320,6 +326,10 @@ races_attributes = [
       trail_map_url: "",
       level: "intermédiaire",
       status: "closed",
+    },
+    sports: {
+      natation: 4.374,
+      course_a_pied: 20.298
     },
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/anjou_swim_run_m/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/anjou_swim_run_m/race.jpg")),
@@ -342,6 +352,10 @@ races_attributes = [
       level: "débutant",
       status: "closed"
       },
+    sports: {
+      natation: 2.123,
+      course_a_pied: 11.992
+    },
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/anjou_swim_run_s/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/anjou_swim_run_s/race.jpg"))
   },
@@ -373,6 +387,10 @@ races_attributes = [
       level: "intermédiaire",
       status: "open"
     },
+    sports: {
+      natation: 4,
+      course_a_pied: 14
+    },
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/breizh_start/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/breizh_start/race.jpg"))
   },
@@ -402,6 +420,9 @@ races_attributes = [
       trail_map_url: "http://tracedetrail.fr/fr/trace/trace/27657",
       level: "débutant",
       status: "open"
+    },
+    sports: {
+      course_a_pied: 10
     },
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/le_dix_saumur/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/le_dix_saumur/race.jpg"))
@@ -441,6 +462,9 @@ races_attributes = [
       level: "expert",
       status: "open"
     },
+    sports: {
+      course_a_pied: 42.195
+    },
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/marathon_de_nantes/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/marathon_de_nantes/race.jpg"))
   }
@@ -450,7 +474,9 @@ races_attributes.each do |races_attributes|
   race = Race.new(races_attributes[:attributes])
   race.trail_map_picture = races_attributes[:trail_map_picture]
   race.picture = races_attributes[:picture]
+  race.calculate_total_distance
   race.save
+
 
 
 end
