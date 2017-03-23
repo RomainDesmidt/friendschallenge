@@ -10,9 +10,9 @@
         <%= form_tag races_path, method: :get do %>
           <div class="form-item1">
                 <% @sports.each do |sport| %>
-                  <%= label_tag '', nil, class: "buttons-sports", style: sport.linear_background do %>
+                  <%= label_tag '', nil, class: "buttons-sports" do %>
                     <%= check_box_tag "search[sports_ids][]", sport.id, nil, class: "hide_checkbox" %>
-                    <%= sport. %>
+                    <%= sport.name %>
                   <% end %>
                 <% end %>
               </div>
