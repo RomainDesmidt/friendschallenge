@@ -29,6 +29,7 @@ momo = User.create!(
   first_name: "momo",
   last_name: "Batman",
   address: "Angers",
+  facebook_id: Faker::Omniauth.facebook,
   email: "momo@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -42,6 +43,7 @@ john = User.create!(
   first_name: "john",
   last_name: "Mckaine",
   address: "Dallas",
+  facebook_id: Faker::Omniauth.facebook,
   email: "john@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -55,7 +57,7 @@ lee = User.create!(
   first_name: "Lee",
   last_name: "Sue",
   address: "Paris",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "lee@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -69,7 +71,7 @@ chuck = User.create!(
   first_name: "chuck",
   last_name: "Norris",
   address: "Houston",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "chuck@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -83,7 +85,7 @@ larry = User.create!(
   first_name: "larry",
   last_name: "Bird",
   address: "NY",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "larry@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -97,7 +99,7 @@ charles = User.create!(
   first_name: "charles",
   last_name: "Lacoche",
   address: "Paris",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "charles@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -111,7 +113,7 @@ tony = User.create!(
   first_name: "tony",
   last_name: "Parker",
   address: "lyon",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "tony@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -125,7 +127,7 @@ kylian = User.create!(
   first_name: "kylian",
   last_name: "Mbappé",
   address: "Monaco",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "kylian@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -139,7 +141,7 @@ lebron = User.create!(
   first_name: "lebron",
   last_name: "James",
   address: "Cleveland",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "lebron@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -153,7 +155,7 @@ michael = User.create!(
   first_name: "michael",
   last_name: "Batman",
   address: "Chicago",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "michael@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -167,7 +169,7 @@ david = User.create!(
   first_name: "david",
   last_name: "Trezeguooool",
   address: "Buesnos Aires",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "david@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -181,7 +183,7 @@ jody = User.create!(
   first_name: "jody",
   last_name: "Vanden",
   address: "Melburn",
-  facebook_id: ,
+  facebook_id: Faker::Omniauth.facebook,
   email: "laurent@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -199,7 +201,7 @@ jody = User.create!(
 
 level = ["débutant", "intermédiaire", "expert"]
 status = ["exist", "open", "closed"]
-sport = ["natation", "course à pied", "cyclisme", "triathlon", "swimrun" ]
+sport = ["swimming", "running", "cycling", "triathlon", "swimrun" ]
 index = 1
 
 quiberon_triathlons = Race.create! (
@@ -332,9 +334,9 @@ marathon_de_nantes = Race.create!(
 
 # sports: name
 
-natation = Sport.create!(name: "natation")
-course_a_pied = Sport.create!(name: "course à pied")
-cyclisme = Sport.create!(name: "cyclisme")
+swimming = Sport.create!(name: "swimming")
+running = Sport.create!(name: "course à pied")
+cycling = Sport.create!(name: "cycling")
 # triathlon = Sport.create!(name: "triathlon")
 # swimrun = Sport.create!(name: "swimrun")
 
@@ -348,177 +350,177 @@ cyclisme = Sport.create!(name: "cyclisme")
 # momo
 UserSport.create!(
   user: momo,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: momo,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: momo,
-  sport: natation
+  sport: swimming
 )
 
 # lee
 UserSport.create!(
   user: lee,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: lee,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: lee,
-  sport: natation
+  sport: swimming
 )
 
 # larry
 UserSport.create!(
   user: larry,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: larry,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: larry,
-  sport: natation
+  sport: swimming
 )
 
 # charles
 UserSport.create!(
   user: charles,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: charles,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: charles,
-  sport: natation
+  sport: swimming
 )
 
 # tony
 UserSport.create!(
   user: tony,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: tony,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: tony,
-  sport: natation
+  sport: swimming
 )
 
 # chuck
 UserSport.create!(
   user: chuck,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: chuck,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: chuck,
-  sport: natation
+  sport: swimming
 )
 
 # kylian
 UserSport.create!(
   user: kylian,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: kylian,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: kylian,
-  sport: natation
+  sport: swimming
 )
 
 # lebron
 UserSport.create!(
   user: lebron,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: lebron,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: lebron,
-  sport: natation
+  sport: swimming
 )
 
 # michael
 UserSport.create!(
   user: michael,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: michael,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: michael,
-  sport: natation
+  sport: swimming
 )
 
 # david
 UserSport.create!(
   user: david,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: david,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: david,
-  sport: natation
+  sport: swimming
 )
 
 # jody
 UserSport.create!(
   user: jody,
-  sport: cyclisme
+  sport: cycling
 )
 
 UserSport.create!(
   user: jody,
-  sport: course_a_pied
+  sport: running
 )
 
 UserSport.create!(
   user: jody,
-  sport: natation
+  sport: swimming
 )
 
 # /////////////////////////////////////////////////////////////////////////////////////////////
@@ -529,7 +531,7 @@ UserSport.create!(
 # marathon de nantes
 RaceSport.create!(
   race: marathon_de_nantes,
-  sport: course_a_pied,
+  sport: running,
   distance: 42
 )
 
@@ -539,33 +541,33 @@ marathon_de_nantes.save
 # marathon de la loire
 RaceSport.create!(
   race: marathon_de_la_loire,
-  sport: course_a_pied,
+  sport: running,
   distance: 42
 )
 
 # breizh start
 RaceSport.create!(
   race: breizh_start,
-  sport: course_a_pied,
+  sport: running,
   distance: 14
 )
 
 RaceSport.create!(
   race: breizh_start,
-  sport: natation,
+  sport: swimming,
   distance: 4
 )
 
 # Anjou M
 RaceSport.create!(
   race: anjou_m,
-  sport: course_a_pied,
+  sport: running,
   distance: 21
 )
 
 RaceSport.create!(
   race: anjou_m,
-  sport: natation;
+  sport: swimming;
   distance: 4.6
 )
 
@@ -573,13 +575,13 @@ RaceSport.create!(
 # Anjou S
 RaceSport.create!(
   race: anjou_s,
-  sport: course_a_pied,
+  sport: running,
   distance: 13
 )
 
 RaceSport.create!(
   race: anjou_s,
-  sport: natation,
+  sport: swimming,
   distance: 2.4
 )
 
@@ -592,49 +594,42 @@ RaceSport.create!(
 champions_mon_frere = RaceGroup.create!(
   user: momo,
   race: marathon_de_nantes,
-  status: ,
   token: SecureRandom.hex(8) #numero unique aléatoire
   )
 
 les_lorientais = RaceGroup.create!(
   user: charles,
   race: lorient_triathlons,
-  status: ,
   token: SecureRandom.hex(8) #numero unique aléatoire
   )
 
 les_nantais = RaceGroup.create!(
   user: jody,
   race: anjou_m,
-  status: ,
   token: SecureRandom.hex(8) #numero unique aléatoire
   )
 
 les_ricains = RaceGroup.create!(
   user: tony,
   race: breizh_start,
-  status: ,
   token: SecureRandom.hex(8) #numero unique aléatoire
   )
 
 les_potos = RaceGroup.create!(
   user: kylian,
   race: quiberon_triathlons,
-  status: ,
   token: SecureRandom.hex(8) #numero unique aléatoire
   )
 
 les_invincibles = RaceGroup.create!(
   user: lebron,
   race: marathon_de_la_loire,
-  status: ,
   token: SecureRandom.hex(8) #numero unique aléatoire
   )
 
 rouge = RaceGroup.create!(
   user: momo,
   race: anjou_s,
-  status: ,
   token: SecureRandom.hex(8) #numero unique aléatoire
   )
 
