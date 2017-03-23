@@ -6,10 +6,10 @@
   height: 50vh;
   background-size: cover;
   background-image: image-url("background.jpg");
+  background-position: center;
 }
 
 .container {
-  width: 85%;
   position: relative;
 
 }
@@ -19,6 +19,7 @@
   font-family: $header-font;
   position: absolute;
   right: 0px;
+  top: -5px;
 }
 
 .form-items {
@@ -75,6 +76,7 @@ h3 {
   flex: 0 0 30%;
   height: 25vh;
   width: 25vw;
+  background-image: image-url("background.jpg");
 }
 
 .search-form {
