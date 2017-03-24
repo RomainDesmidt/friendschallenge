@@ -3,7 +3,6 @@ class RacesController < ApplicationController
 
   def index
     @races = Race.where.not(latitude: nil, longitude: nil)
-
     @place_markers_hash = Gmaps4rails.build_markers(@races) do |race, marker|
       marker.lat race.latitude
       marker.lng race.longitude
@@ -12,6 +11,7 @@ class RacesController < ApplicationController
   end
 
   def show
+    @race = Race.find(params[:id])
   end
 
 end
