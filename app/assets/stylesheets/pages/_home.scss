@@ -111,9 +111,10 @@ h3 {
   background: -webkit-linear-gradient(-225deg, rgba(25,52,127,0.6) 0%,rgba(26,140,51,0.8) 33%,rgba(117,181,28,0.6) 66%,rgba(244,218,19,0.6) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: .1s ease-in-out;
 }
 
 .btn-search:hover {
-  transition: .1s ease-in-out;
-  font-size: 65px;
+
+    font-size: 65px;
 }
