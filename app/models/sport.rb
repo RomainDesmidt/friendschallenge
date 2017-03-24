@@ -8,5 +8,4 @@ class Sport < ApplicationRecord
 
   #photo uploader
   mount_uploader :photo, PhotoUploader
-
 end
