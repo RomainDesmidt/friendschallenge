@@ -6,11 +6,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
   #database
-  has_many :user_sports
+  has_many :user_sports, dependent: :destroy
   has_many :sports, through: :user_sports
-  has_many :race_groups
+  has_many :race_groups, dependent: :nullify
+
   has_many :races, through: :race_groups
-  has_many :group_memberships
+  has_many :group_memberships, dependent: :destroy
+
+  has_many :race_groups_as_member, through: :group_memberships, source: :race_group
 
   #validation
   validates :first_name, presence: true
