@@ -16,11 +16,30 @@
           <div class="card_show">
           <div class="row">
             <% @races.each do |race| %>
-              <div class="col-xs-6">
+              <div class="col-xs-6 col-sm-6">
+
+
+                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://lorempixel.com/500/500');">
+                          <div class="card-category"><%=race.attributes["date"]%></div>
+                          <div class="card-description">
+                            <h2></h2>
+                            <p></p>
+                          </div>
+                          <div class="card-user">
+                            <img src="images/run_logo.jpeg" class="avatar-sport">
+                          </div>
+                          <a href="#" class="card-link"></a>
+                        </div>
+
+
+
+
                 <%= link_to race_path(1) do %>
                   <div class="race-card">
                     <li class="list-group-item"><%=race.name %></li>
-                    <li class="list-group-item"><%= race.total_distance %> - <%= race.place %> - <%= race.date %></li>
+                    <a class="list-group-item"><%=race.attributes["total_distance"]%> km | <%=race.attributes["level"]%> | <%=race.attributes["date"]%></a>
+                    <!-- <li class="list-group-item"><%= race.total_distance %> - <%= race.place %> - <%= race.date %></li> -->
+<!-- rajouter les amis intéressés et ceux inscrits -->
                   </div>
                 <% end %>
               </div>
@@ -32,23 +51,23 @@
         <div class="col-xs-6 col-sm-4">
           <div id="map" style="width: 80%; height: 400px;"></div>
 
-    <% content_for(:after_js) do %>
-      <script>
-        $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @race_coordinates.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-           if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(4);
-             }
-            });
-          });
-      </script>
-      <% end %>
+            <% content_for(:after_js) do %>
+              <script>
+                $(document).ready(function() {
+                  var handler = Gmaps.build('Google');
+                  handler.buildMap({ internal: { id: 'map' } }, function() {
+                  markers = handler.addMarkers(<%= raw @place_markers_hash.to_json %>);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                   if (markers.length == 0) {
+                    handler.getMap().setZoom(6);
+                  } else if (markers.length == 1) {
+                    handler.getMap().setZoom(4);
+                     }
+                    });
+                  });
+              </script>
+              <% end %>
           </div>
         </div>
       </div>
