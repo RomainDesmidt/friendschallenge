@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324105905) do
+ActiveRecord::Schema.define(version: 20170324133431) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170324105905) do
     t.string   "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
     t.index ["race_id"], name: "index_race_groups_on_race_id", using: :btree
     t.index ["user_id"], name: "index_race_groups_on_user_id", using: :btree
   end
@@ -49,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170324105905) do
   create_table "races", force: :cascade do |t|
     t.text     "description"
     t.string   "name"
-    t.string   "place"
+    t.string   "location"
     t.float    "total_distance"
     t.date     "date"
     t.integer  "price"
@@ -65,10 +67,8 @@ ActiveRecord::Schema.define(version: 20170324105905) do
 
   create_table "sports", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "linear_background"
-    t.string   "picture_path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_sports", force: :cascade do |t|
