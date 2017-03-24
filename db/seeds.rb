@@ -268,6 +268,30 @@ end
 races_attributes = [
   # Hashes representant les infos des courses
   {
+    # Parcours du Semi-marathon de Nantes by Sobhi Sport 21,1 km
+    # Course 21.1
+    attributes: {
+      name: "Après le franc succès de la première édition du Semi-marathon
+        by Sobhi Sport en 2016, l’épreuve revient dans les rues de Nantes avec
+        un nombre de dossards limité à 4000. Le départ sera donné des Nefs des
+        Machines de l’Ile à 8h30 (nouvelle aire de départ). Le tracé suivra la
+        boucle principale du marathon avec un parcours 100\% urbain.",
+      location: "Nantes, France",
+      date: Date.new(2017,4,30),
+      price: 26,
+      trail_map_url: "https://www.google.com/maps/d/viewer?mid=1zPAnEnJcNxHw36lA5HhXd995r0E",
+      official_event_url: "https://www.marathondenantes.com/parcours-semi-marathon/",
+      level: "intermédiaire", # tu choisis manuellement
+      status: "closed" # pareil
+    },
+    sports: {
+      course_a_pied: 21.1
+    },
+    trail_map_picture: File.new(Rails.root.join("db/fixtures/images/triathlon_de_quiberon_m/map.jpg")),
+    picture: File.new(Rails.root.join("db/fixtures/images/triathlon_de_quiberon_m/race.jpg"))
+  },
+
+  {
     # Triathlon de Quiberon
     # Natation 1.5, Course 10, Cyclisme 38
     attributes: {
