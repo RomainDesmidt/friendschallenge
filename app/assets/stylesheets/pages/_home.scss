@@ -63,41 +63,31 @@ h3 {
   margin-top: 30px;
 }
 
-.labels-font {
-  font-weight: normal;
-  color:#484848 ;
-}
-
 .buttons-sports {
   flex: 0 0 30%;
   height: 25vh;
   width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: normal;
 }
 
+.sports-label {
+  font-family: $header-font;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 2px #020001;
+  font-size: 35px;
+  letter-spacing: 1px;
+}
 .search-form {
   border-left: none;
   border-right: none;
   border-top: none;
   border-color: #020001;
   flex: 0 0 40%;
-
 }
-
-.swimming {
-  padding:20px;
-  background-image: url('http://www.leisurecentre.com/Content/images/Swim%20Lessons%20Children%202_920x550.jpg');
-}
-
-.running {
-  padding:20px;
-  background-image: url('https://static1.squarespace.com/static/557b65c2e4b00283cf1ca9b0/t/5585d703e4b0d4f1a8bc4dc2/1434834698106/shutterstock_139712587.jpg');
-}
-
-.cycling {
-  padding:20px;
-  background-image: url('http://www.ilovebicycling.com/wp-content/uploads/2014/03/yourpreridechecklist.jpg');
-}
-
 
 .hide_checkbox {
   display: none;
