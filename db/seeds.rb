@@ -25,10 +25,21 @@ GroupMembership.destroy_all
 
 # # sports: name
 
-natation = Sport.create!(name: "Natation")
-course_a_pied = Sport.create!(name: "Course à pied")
-cyclisme = Sport.create!(name: "Cyclisme")
+sports_attributes = [
+  {
+    name: "Cyclisme"
+  },
+  {
+    name: "Course à pied"
+  },
+  {
+    name: "Natation"
+  }
+]
 
+sports_attributes.each do |sport_attributes|
+  Sport.create(sport_attributes)
+end
 
 user_levels = ["débutant", "intermédiaire", "expert"]
 
@@ -64,7 +75,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Cyclisme", "Course à pied"]
 
   },
 
@@ -82,7 +93,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Cyclisme"]
   },
 
   {
@@ -99,7 +110,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Natation", "Cyclisme"]
   },
 
   {
@@ -116,7 +127,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Natation"]
   },
 
   {
@@ -133,7 +144,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Course à pied"]
   },
 
   {
@@ -150,7 +161,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Cyclisme"]
   },
 
   {
@@ -167,7 +178,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Cyclisme", "Course à pied"]
   },
 
   {
@@ -184,7 +195,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Natation", "Cyclisme"]
   },
 
   {
@@ -201,7 +212,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Course à pied"]
   },
 
   {
@@ -218,7 +229,7 @@ users_attributes = [
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
     profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
-    sports_names: ["Natation", "Course à pied"]
+    sports_names: ["Cyclisme"]
   },
 
   {
@@ -241,10 +252,11 @@ users_attributes = [
 
 
 users_attributes.each do |user_attributes|
-  puts users_attributes[:attributes][:name]
+  puts user_attributes[:attributes][:first_name]
   user = User.new(user_attributes[:attributes])
   user.medical_certificate = user_attributes[:medical_certificate]
   user.remote_profile_picture_url = user_attributes[:profile_picture_url]
+  sleep 0.4
   user.save
 
   sports_names = user_attributes[:sports_names]
@@ -271,7 +283,8 @@ races_attributes = [
     # Parcours du Semi-marathon de Nantes by Sobhi Sport 21,1 km
     # Course 21.1
     attributes: {
-      name: "Après le franc succès de la première édition du Semi-marathon
+      name: "Parcours du Semi-marathon de Nantes by Sobhi",
+      description: "Après le franc succès de la première édition du Semi-marathon
         by Sobhi Sport en 2016, l’épreuve revient dans les rues de Nantes avec
         un nombre de dossards limité à 4000. Le départ sera donné des Nefs des
         Machines de l’Ile à 8h30 (nouvelle aire de départ). Le tracé suivra la
@@ -287,8 +300,8 @@ races_attributes = [
     sports: {
       course_a_pied: 21.1
     },
-    trail_map_picture: File.new(Rails.root.join("db/fixtures/images/triathlon_de_quiberon_m/map.jpg")),
-    picture: File.new(Rails.root.join("db/fixtures/images/triathlon_de_quiberon_m/race.jpg"))
+    trail_map_picture: File.new(Rails.root.join("db/fixtures/images/semi_marathon_nantes/map.jpg")),
+    picture: File.new(Rails.root.join("db/fixtures/images/semi_marathon_nantes/race.jpg"))
   },
 
   {
@@ -513,24 +526,25 @@ races_attributes.each do |race_attributes|
   race.trail_map_picture = race_attributes[:trail_map_picture]
   race.picture = race_attributes[:picture]
   race.save
+
+
   sports = race_attributes[:sports]
-  natation_value = sports[:natation]
-  if natation_value
-    sport = Sport.find_by_name("Natation")
-    race_sport_natation = RaceSport.create(race: race, sport: sport, distance: natation_value)
+  p sports
+
+  sports_names_map = {
+    course_a_pied: "Course à pied",
+    cyclisme: "Cyclisme",
+    natation: "Natation"
+  }
+
+  sports.each do |sport_name_key, distance|
+    sport_name = sports_names_map[sport_name_key]
+
+    sport = Sport.find_by_name(sport_name)
+    puts "a RaceSport is created for the #{sport}"
+    RaceSport.create(race: race, sport: sport, distance: distance)
   end
 
-  course_value = sports[:course_a_pied]
-  if course_value
-    sport = Sport.find_by_name("Course à pied")
-    race_sport_course_a_pied = RaceSport.create(race: race, sport: sport, distance: course_value)
-  end
-
-  cyclisme_value = sports[:cyclisme]
-  if cyclisme_value
-    sport = Sport.find_by_name("Cyclisme")
-    race_sport_cyclisme = RaceSport.create(race: race, sport: sport, distance: cyclisme_value)
-  end
   race.calculate_total_distance!
   race.save
 end
@@ -539,70 +553,102 @@ end
 # # ////////////////////////////////////////////////////////////////////////////////////////////
 # # ///////////////////////////////////////////////////////////////////////////////////////////
 
-# # race_sports: sport_id/race_id/ distance
-# # marathon de nantes
-# RaceSport.create!(
-#   race: marathon_de_nantes,
-#   sport: course_a_pied,
-#   distance: 42
-# )
 
-# marathon_de_nantes.calculate_total_distance
-# marathon_de_nantes.save
+# creation d'un racegroupe pour une course donne
+# integration d'un user owner
+# creation d'un GroupMembership
+# ajout du owner du groupe + 3 user ramdom
+# save
+# fermeture
 
-# # marathon de la loire
-# RaceSport.create!(
-#   race: marathon_de_la_loire,
-#   sport: course_a_pied,
-#   distance: 42
-# )
-
-# # breizh start
-# RaceSport.create!(
-#   race: breizh_start,
-#   sport: course_a_pied,
-#   distance: 14
-# )
-
-# RaceSport.create!(
-#   race: breizh_start,
-#   sport: natation,
-#   distance: 4
-# )
-
-# # Anjou M
-# RaceSport.create!(
-#   race: anjou_m,
-#   sport: course_a_pied,
-#   distance: 21
-# )
-
-# RaceSport.create!(
-#   race: anjou_m,
-#   sport: natation;
-#   distance: 4.6
-# )
-
-
-# # Anjou S
-# RaceSport.create!(
-#   race: anjou_s,
-#   sport: course_a_pied,
-#   distance: 13
-# )
-
-# RaceSport.create!(
-#   race: anjou_s,
-#   sport: natation,
-#   distance: 2.4
-# )
-
-# # /////////////////////////////////////////////////////////////////////////////////////////////
-# # ////////////////////////////////////////////////////////////////////////////////////////////
-# # ///////////////////////////////////////////////////////////////////////////////////////////
 
 # # race_groups: user_id/race_id/status/token
+race_groups_attributes = [
+  {
+    group_name: "Marathoniens de l'Enfer",
+    race_name: "Marathon de Nantes"
+  },
+  {
+    group_name: "Les Lorientais",
+    race_name: "Triathlon de Lorient"
+  },
+  {
+    group_name: "Les Medecins de Nantes",
+    race_name: "Parcours du Semi-marathon de Nantes by Sobhi"
+  }
+]
 
+
+
+
+
+race_groups_attributes.each do |race_group_attributes|
+  random_group_size = rand(5) + 4
+  group_users = User.order("RANDOM()").limit(random_group_size).to_a
+
+  group_owner = group_users.pop
+
+  race_group = RaceGroup.create(
+    user: group_owner,
+    name: race_group_attributes[:group_name],
+    race: Race.find_by_name(race_group_attributes[:race_name]),
+    token: SecureRandom.hex(8) #numero unique aléatoire
+  )
+
+  GroupMembership.create(
+    user: group_owner,
+    race_group: race_group
+  )
+
+  group_users.each do |group_user|
+    GroupMembership.create(
+      user: group_user,
+      race_group: race_group
+    )
+  end
+end
+
+# name_race_group.each_with_index do |name, index|
+#   jane = User.find_by_first_name("Jane")
+#   race_group = RaceGroup.create(
+#     user: jane,
+#     race: Race.find_by_name("Marathon de Nantes"),
+#     # status: ,
+#     token: SecureRandom.hex(8) #numero unique aléatoire
+#     )
+#   3.times do
+#     GroupMembership.create(
+#       user: jane,
+#       race_group: race_group
+#       ),
+#     user_random = User.order("RANDOM()").limit(1) unless user_random != jane
+#     GroupMembership.create(
+#       user: user_random,
+#       race_group: race_group
+#       )
+#   end
+# end
+
+# name_race_group.each_with_index do |name, index|
+#   charles = User.find_by_first_name("Charles")
+#   race_group = RaceGroup.create(
+#     user: charles,
+#     race: Race.find_by_name("Triathlon de Lorient"),
+#     # status: ,
+#     token: SecureRandom.hex(8) #numero unique aléatoire
+#     )
+#   3.times do
+#     GroupMembership.create(
+#       user: charles,
+#       race_group: race_group
+#       ),
+#     user_random = User.order("RANDOM()").limit(1) unless user_random != charles
+#     GroupMembership.create(
+#       user: user_random,
+#       race_group: race_group
+#       )
+#   end
+# end
 # champions_mon_frere = RaceGroup.create!(
 #   user: momo,
 #   race: marathon_de_nantes,
