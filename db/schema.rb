@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170324133431) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,8 +68,9 @@ ActiveRecord::Schema.define(version: 20170324133431) do
 
   create_table "sports", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "picture_path"
   end
 
   create_table "user_sports", force: :cascade do |t|
