@@ -50,18 +50,26 @@
                 $(document).ready(function() {
                   var handler = Gmaps.build('Google');
                   handler.buildMap({ internal: { id: 'map' } }, function() {
-                  markers = handler.addMarkers(<%= raw @place_markers_hash.to_json %>);
-                  handler.bounds.extendWith(markers);
-                  handler.fitMapToBounds();
-                   if (markers.length == 0) {
-                    handler.getMap().setZoom(6);
-                  } else if (markers.length == 1) {
-                    handler.getMap().setZoom(8);
-                     }
-                    });
+                    markers = handler.addMarkers(<%= raw @place_markers_hash.to_json %>);
+                    console.log(markers);
+                    handler.bounds.extendWith(markers);
+                    handler.fitMapToBounds();
+                    if (markers.length == 0) {
+                      handler.getMap().setZoom(6);
+                    } else if (markers.length == 1) {
+                      handler.getMap().setZoom(8);
+                    }
                   });
-              </script>
+                });
+
+
+               </script>
               <% end %>
+
+
+
+
+
         </div>
       </div>
     </div>
