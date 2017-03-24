@@ -20,4 +20,7 @@ class Race < ApplicationRecord
   def calculate_total_distance!
     self.total_distance = self.race_sports.pluck(:distance).reduce(:+)
   end
+
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 end
