@@ -5,18 +5,20 @@
 .wrapper-cover-picture {
   height: 50vh;
   background-size: cover;
-  background-image: linear-gradient(-225deg, rgba(25,52,127,0.6) 0%,rgba(26,140,51,0.8) 33%,rgba(117,181,28,0.6) 66%,rgba(244,218,19,0.6) 100%), url("http://renatures.com/wp-content/uploads/2016/11/mountains-france-mountain-alpes-nature-annecy-forest-wallpaper-himalaya-1920x1080.jpg");
+  background-image: image-url("background.jpg");
 }
 
 .container {
   width: 85%;
+  position: relative;
 
 }
 .slogan {
-  color: white;
+  color: #020001;
   font-weight: normal;
   font-family: $header-font;
-
+  position: absolute;
+  right: 0px;
 }
 
 .form-items {
@@ -114,9 +116,10 @@ h3 {
   background: -webkit-linear-gradient(-225deg, rgba(25,52,127,0.6) 0%,rgba(26,140,51,0.8) 33%,rgba(117,181,28,0.6) 66%,rgba(244,218,19,0.6) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: .1s ease-in-out;
 }
 
 .btn-search:hover {
-  transition: .1s ease-in-out;
-  font-size: 65px;
+
+    font-size: 65px;
 }

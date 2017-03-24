@@ -3,9 +3,7 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png" %>
   <% end %>
-  <div class="title-navebar">
-    <h1>FRIENDS CHALLENGE</h1>
-  </div>
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -53,9 +51,9 @@
       </div> -->
 
     <% else %>
-      <%= link_to t(".top_call_to_action", default: "MES COURSES"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <%= link_to t(".top_call_to_action", default: "Mes Courses"), "#", class: "my_races_access" %>
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "btn-search-small" %>
 
     <% end %>
 
