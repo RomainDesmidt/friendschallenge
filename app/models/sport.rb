@@ -7,6 +7,6 @@ class Sport < ApplicationRecord
   validates :name, uniqueness: true, presence: true
 
   #photo uploader
-  mount_uploader :photo, PhotoUploader
+  # mount_uploader :photo, PhotoUploader
 
 end
