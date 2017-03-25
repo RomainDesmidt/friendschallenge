@@ -1,24 +1,4 @@
-<div class="box-in-index">
-  <div class= "form-group form-items">
-    <%= form_tag races_path, method: :get do %>
-      <div class="form-item1">
-        <% @sports.each do |sport| %>
-          <%= label_tag '', nil, class: "buttons-sports", style: "background-image: linear-gradient(-225deg, #{linear_background_for(sport)} 20%, rgba(255, 255, 255, 0.5) 80%), url('#{image_path picture_path_for(sport)}'); background-size: cover;" do %>
-            <%= check_box_tag "search[sports_ids][]", sport.id, nil, class: "hide_checkbox" %>
-            <p class="sports-label"><%= placeholder_for(sport) %></p>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="form-item2">
-        <%= search_field :search, :place, placeholder: 'OÙ ?', class: "search-form", style: "text-align: center" %>
-        <%= date_field :search, :date, placeholder: 'QUAND ?', class: "search-form", style: "text-align: center" %>
-      </div>
-      <div class="form-item3 text-center">
-        <%= submit_tag "GO !", class: "btn-search"%>
-      </div>
-    <% end %>
-  </div>
-</div>
+
 <div class="wrapper">
   <div class="filters-wrapper">
     <div class="box">
@@ -40,7 +20,7 @@
           <div class="row">
             <% @races.each do |race| %>
               <div class="col-xs-6 col-sm-6">
-                  <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path race.picture, height: 300, width: 400, crop: :fill %>');">
+                  <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path race.picture %>, height: 300, width: 400, crop: :fill');">
                     <div class="card-category-index"> J - <%=(race.date - Date.today).to_i %></div>
                       <div class="card-description">
                         <h2></h2>
