@@ -2,7 +2,7 @@ class RacesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @races = Race.where.not(latitude: nil, longitude: nil)
+    @races = Race.where('location ILike ?', "%#{params[:search][:place]}%").where.not(latitude: nil, longitude: nil)
     @place_markers_hash = Gmaps4rails.build_markers(@races) do |race, marker|
       marker.lat race.latitude
       marker.lng race.longitude
