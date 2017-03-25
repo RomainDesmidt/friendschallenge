@@ -81,6 +81,7 @@ h3 {
   text-shadow: 1px 1px 2px #020001;
   font-size: 35px;
   letter-spacing: 1px;
+  font-weight: bolder;
 }
 .search-form {
   border-left: none;
@@ -95,9 +96,9 @@ h3 {
 }
 
 .btn-search {
-  background: none;
-  border-radius: none;
-  border: none;
+  // background: none;
+  // border-radius: none;
+  border: 1px;
   font-family: $header-font;
   font-weight: bolder;
   font-size: 50px;
