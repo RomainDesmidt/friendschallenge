@@ -23,4 +23,9 @@ class Race < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
+
+  # scope :location(params), -> do
+  #   where ("location Ilike %#{params}%" )
+  # # scope :sport, -> (sport) { where "location like?", "%#{params[:search][:sport_name[]]}%""}
+  # end
 end
