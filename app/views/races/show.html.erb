@@ -1,28 +1,34 @@
-<h1> <%= @race.name %></h1>
 
-<%= @race.picture %>
-<%= @race.description %>
-
-
-<div class="col-xs-6">
-  <div id="map" style="width: 80%; height: 400px;"></div>
-
-    <% content_for(:after_js) do %>
-      <script>
-        $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @race_coordinates.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-           if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(4);
-             }
-            });
-          });
-      </script>
-      <% end %>
-
+<div class="raceshow-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="card-event-description" style="background-image: url('<%= cl_image_path @race.picture %>'); background-size: cover;">
+          <div class="event-keypoints">
+            <h1 class="event-title"><%= @race.name %><h1>
+            <p class="bulletpoints"><%= @race.total_distance %><p>
+            <p class="bulletpoints"><%= @race.location %><p>
+            <p class="bulletpoints"><%= @race.date %><p>
+          </div>
+          <div class="level-sticker">
+            <% if @race.level == "débutant" %>
+              <span class="label label-success">Débutant</span>
+            <% elsif @race.level == "intermédiaire" %>
+              <span class="label label-warning">Intermédiaire</span>
+            <% elsif @race.level == "expert" %>
+              <span class="label label-danger">Expert</span>
+            <% end %>
+          </div>
+        </div>
+        <div class="other-event-info">
+          <p>Autres infos utiles: </p>
+         <%= link_to "Page officielle de la course", @race.official_event_url %>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="trail-map" style="background-image: url('<%= cl_image_path @race.trail_map_picture %>')">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

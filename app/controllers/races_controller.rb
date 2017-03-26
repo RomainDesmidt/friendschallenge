@@ -28,4 +28,5 @@ class RacesController < ApplicationController
   # scope :status, -> (status) { where status: status }
   # scope :location, -> (location_id) { where location_id: location_id }
   # scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
+
 end
