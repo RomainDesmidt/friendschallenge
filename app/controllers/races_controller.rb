@@ -14,11 +14,11 @@ class RacesController < ApplicationController
     end
 
 
-    select (sports.name
-      FROM sports
-      INNER JOIN race_sports
-      ON sports.id = race_sports.sport_id
-      )
+    # select (*
+    #   FROM sports
+    #   INNER JOIN race_sports
+    #   ON sports.id = race_sports.sport_id
+    #   ).where(race.sports IN params[:search][:sports_name])
   end
 
   def show

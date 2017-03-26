@@ -34,7 +34,10 @@
 }
 
 .race-card {
-  margin-bottom: 25px;
+  // margin-bottom: 25px;
+  width: 400px;
+  margin: 50px;
+
 }
 
 .card-category-index {
@@ -49,7 +52,32 @@
   color: white;
   position: relative;
   top: 68px;
- -webkit-transition: .2s ease-in-out;
+  margin-left: 70px;
+  // margin-top: 5px;
+ // -webkit-transition: .2s ease-in-out;
+
+}
+
+.index-map{
+  margin-top: 60px;
+  padding: 10px;
+}
+
+.card-index{
   transition: .2s ease-in-out;
 }
 
+.card-index:hover{
+  transform: scale(1.1);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+}
+
+.results-wrapper{
+  margin-top: 150px;
+  position:absolute;
+}
+
+// #map.floatable {
+//   position: fixed;
+//   top: 10px; // non-obligatoire
+// }
