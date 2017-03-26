@@ -10,7 +10,7 @@ class RacesController < ApplicationController
     @place_markers_hash = Gmaps4rails.build_markers(@races) do |race, marker|
       marker.lat race.latitude
       marker.lng race.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      marker.infowindow( race.name )
     end
 
 
