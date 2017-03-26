@@ -12,6 +12,13 @@ class RacesController < ApplicationController
       marker.lng race.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
+
+
+    select (sports.name
+      FROM sports
+      INNER JOIN race_sports
+      ON sports.id = race_sports.sport_id
+      )
   end
 
   def show
