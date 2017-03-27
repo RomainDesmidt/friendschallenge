@@ -2,11 +2,20 @@ class RacesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
+
     # @races = Sport.where({name: params[:search][:sports_name]})
-    @races = Race.where('location ILike ?', "%#{params[:search][:place]}%").where.not(latitude: nil, longitude: nil)
+
+    @races = Race.joins(:sports).where("sports.name IN (?)", params[:search][:sports_name])
+
+    @races = @races.where('location ILike ?', "%#{params[:search][:place]}%").where.not(latitude: nil, longitude: nil)
+    if params[:search][:date] != ""
+      binding.pry
+    end
+
     # sport ILike ?
     #"%#{params[:search][:sports_name]}%",
     # binding.pry
+
     @place_markers_hash = Gmaps4rails.build_markers(@races) do |race, marker|
       marker.lat race.latitude
       marker.lng race.longitude
