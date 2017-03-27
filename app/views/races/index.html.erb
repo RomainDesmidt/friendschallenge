@@ -1,32 +1,12 @@
-<div class="wrapper">
-  <div class="filters-wrapper">
+<div class="wrapper-cover-picture">
+<!--   <div class="filters-wrapper">
     <div class="box">
       <div class="box-title">
         <h3>Je cherche une course</h3>
       </div>
-
-
-          <div class= "form-group form-items">
-            <%= form_tag races_path, method: :get do %>
-
-              <div class="form-item2">
-                <%= search_field :search, :place, placeholder: 'OÙ ?', class: "search-form", style: "text-align: center" %>
-                <%= date_field :search, :date, placeholder: 'QUAND ?', class: "search-form", style: "text-align: center" %>
-              </div>
-              <div class="form-item3 text-center">
-                <%= submit_tag "GO !", class: "btn-search"%>
-              </div>
-            <% end %>
-          </div>
-
-
-
-
-
-
       <div class= "form-group form-items">
-        <!-- Insertion code propre de home page + ajout champs "Niveau" & "Prix" -->
-      </div>
+ -->        <!-- Insertion code propre de home page + ajout champs "Niveau" & "Prix" -->
+     <!--  </div>
     </div>
   </div>
   <div class="results-wrapper">
@@ -77,10 +57,35 @@
 
                </script>
               <% end %>
+
         </div>
+        <div class="results-wrapper">
+
+          <!-- <div class="container"> -->
+            <div class="row">
+
+                    <% @races.each do |race| %>
+                      <%= link_to race_path(race) do %>
+                        <div class="col-xs-12 col-sm-5 col-md-4 race-results">
+                            <div class="image-race" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path race.picture, height: 300, width: 400, crop: :fill %>');">
+                              <div class="card-category-index"> J - <%=(race.date - Date.today).to_i %></div>
+                                <div class="card-description">
+                                  <h2></h2>
+                                   <p></p>
+                                </div>
+                              <div class="race-card">
+                                <li class="list-group-item"><%=race.name %></li>
+                                <a class="list-group-item"><%=race.total_distance%> km | <%=race.level%> | <%=race.date %></a>
+                              </div>
+                            </div>
+                        </div>
+                      <% end %>
+                   <% end %>
+                <!-- </div> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            </div>
+          </div>
       </div>
-    </div>
   </div>
 </div>
-
-

@@ -8,17 +8,17 @@
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
-  position: absolute;
+  // position: absolute;
   width: 100%;
 }
 .my_races_access {
   margin-right: 40px;
   font-family: $header-font;
-  color: #020001
+  color: #202126
 }
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
-  position: fixed;
+  // position: fixed;
   left: 0px;
   top: 0px;
   z-index: 1;
