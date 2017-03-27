@@ -32,5 +32,6 @@ class RacesController < ApplicationController
 
   def show
     @race = Race.find(params[:id])
+    @sports = Sport.all
   end
 end
