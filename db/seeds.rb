@@ -283,7 +283,7 @@ races_attributes = [
     # Parcours du Semi-marathon de Nantes by Sobhi Sport 21,1 km
     # Course 21.1
     attributes: {
-      name: "Parcours du Semi-marathon de Nantes by Sobhi",
+      name: "Semi-marathon de Nantes",
       description: "Après le franc succès de la première édition du Semi-marathon
         by Sobhi Sport en 2016, l’épreuve revient dans les rues de Nantes avec
         un nombre de dossards limité à 4000. Le départ sera donné des Nefs des

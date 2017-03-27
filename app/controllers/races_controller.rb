@@ -8,17 +8,12 @@ class RacesController < ApplicationController
     #"%#{params[:search][:sports_name]}%",
     # binding.pry
     @place_markers_hash = Gmaps4rails.build_markers(@races) do |race, marker|
-      marker.lat race.latitude
-      marker.lng race.longitude
-      marker.infowindow( race.name )
+      marker.lat        race.latitude
+      marker.lng        race.longitude
+      marker.title      race.name
+      marker.infowindow render_to_string(partial: "/races/map_infowindow", locals:  { race: race })
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
-
-
-    # select (*
-    #   FROM sports
-    #   INNER JOIN race_sports
-    #   ON sports.id = race_sports.sport_id
-    #   ).where(race.sports IN params[:search][:sports_name])
   end
 
   def show

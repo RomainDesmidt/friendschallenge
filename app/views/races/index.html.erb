@@ -8,28 +8,56 @@
  -->        <!-- Insertion code propre de home page + ajout champs "Niveau" & "Prix" -->
      <!--  </div>
     </div>
-  </div> -->
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <div class="index-map">
-        <div id="map" ></div>
-          <% content_for(:after_js) do %>
-            <script>
-              $(document).ready(function() {
-                var handler = Gmaps.build('Google');
-                handler.buildMap({ internal: { id: 'map' } }, function() {
-                markers = handler.addMarkers(<%= raw @place_markers_hash.to_json %>);
-                handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
-                 if (markers.length == 0) {
-                  handler.getMap().setZoom(6);
-                } else if (markers.length == 1) {
-                  handler.getMap().setZoom(8);
-                   }
+  </div>
+  <div class="results-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-sm-8">
+
+          <div class="row">
+            <% @races.each do |race| %>
+              <div class="col-xs-12 col-sm-6">
+              <%= link_to race_path(race) do %>
+                  <div class="card-index" style="background-image: linear-gradient(rgba(249, 232, 35, 0.81), rgba(61, 228, 20, 0.69)),url('<%= cl_image_path race.picture, height: 300, width: 400, crop: :fill %>');">
+                    <div class="card-date-J-index"> J - <%=(race.date - Date.today).to_i %></div>
+                    <div class="card-level-index"><%=race.level%></div>
+                    <div class="card-description-race-index text-center">
+                        <p><%=race.date%></p>
+                        <h2><%=race.name.upcase %></h2>
+                        <h4><%=race.total_distance%> km</h4>
+                    </div>
+              </div>
+              <% end %>
+              </div>
+             <% end %>
+          </div>
+
+      </div>
+
+        <div class="col-xs-6 col-sm-4">
+          <div id="map" style="width: 100%; height: 700px;"></div>
+
+            <% content_for(:after_js) do %>
+              <script>
+                $(document).ready(function() {
+                  var handler = Gmaps.build('Google');
+                  handler.buildMap({ internal: { id: 'map' } }, function() {
+                    markers = handler.addMarkers(<%= raw @place_markers_hash.to_json %>);
+                    console.log(markers);
+                    handler.bounds.extendWith(markers);
+                    handler.fitMapToBounds();
+                    if (markers.length == 0) {
+                      handler.getMap().setZoom(6);
+                    } else if (markers.length == 1) {
+                      handler.getMap().setZoom(8);
+                    }
                   });
                 });
-            </script>
-          <% end %>
+
+
+               </script>
+              <% end %>
+
         </div>
         <div class="results-wrapper">
 
