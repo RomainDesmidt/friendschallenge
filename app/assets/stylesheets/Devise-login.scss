@@ -2,7 +2,7 @@
 .devise-border-form-div {
   max-width: 350px;
   padding: 19px 29px 29px;
-  margin: 50px auto 20px;
+  margin: 150px 600px 20px;
   background-color: #fff;
   border: 1px solid #e5e5e5;
   -webkit-border-radius: 5px;
@@ -11,11 +11,14 @@
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  position: fixed;
 }
+
 .devise-border-form-div .form-signin-heading,
 .devise-border-form-div .checkbox {
   margin-bottom: 10px;
 }
+
 .devise-border-form-div input[type="text"],
 .devise-border-form-div input[type="email"],
 .devise-border-form-div input[type="password"] {

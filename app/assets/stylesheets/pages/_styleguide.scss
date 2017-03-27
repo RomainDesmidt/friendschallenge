@@ -32,24 +32,3 @@
     color: $gray-base;
   }
 }
-
-.race-card {
-  margin-bottom: 25px;
-}
-
-.card-category-index {
-  margin-left: 5px;
-}
-
-.card-index {
-  height: 300px;
-  width: 400px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  background-size: cover !important;
-  color: white;
-  position: relative;
-  top: 68px;
- -webkit-transition: .2s ease-in-out;
-  transition: .2s ease-in-out;
-}
-
