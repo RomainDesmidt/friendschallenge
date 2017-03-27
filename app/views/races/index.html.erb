@@ -1,12 +1,11 @@
 <div class="wrapper-cover-picture">
-<!--   <div class="filters-wrapper">
+  <div class="filters-wrapper">
     <div class="box">
       <div class="box-title">
         <h3>Je cherche une course</h3>
       </div>
       <div class= "form-group form-items">
- -->        <!-- Insertion code propre de home page + ajout champs "Niveau" & "Prix" -->
-     <!--  </div>
+      </div>
     </div>
   </div>
   <div class="results-wrapper">
@@ -18,74 +17,45 @@
             <% @races.each do |race| %>
               <div class="col-xs-12 col-sm-6">
               <%= link_to race_path(race) do %>
-                  <div class="card-index" style="background-image: linear-gradient(rgba(249, 232, 35, 0.81), rgba(61, 228, 20, 0.69)),url('<%= cl_image_path race.picture, height: 300, width: 400, crop: :fill %>');">
-                    <div class="card-date-J-index"> J - <%=(race.date - Date.today).to_i %></div>
-                    <div class="card-level-index"><%=race.level%></div>
-                    <div class="card-description-race-index text-center">
-                        <p><%=race.date%></p>
-                        <h2><%=race.name.upcase %></h2>
-                        <h4><%=race.total_distance%> km</h4>
-                    </div>
-              </div>
+                <div class="card-index" style="background-image: linear-gradient(rgba(249, 232, 35, 0.81), rgba(61, 228, 20, 0.69)),url('<%= cl_image_path race.picture, height: 300, width: 400, crop: :fill %>');">
+                  <div class="card-date-J-index"> J - <%=(race.date - Date.today).to_i %></div>
+                  <div class="card-level-index"><%=race.level%></div>
+                  <div class="card-description-race-index text-center">
+                      <p><%=race.date%></p>
+                      <h2><%=race.name.upcase %></h2>
+                      <h4><%=race.total_distance%> km</h4>
+                  </div>
+                </div>
               <% end %>
               </div>
-             <% end %>
+            <% end %>
           </div>
-
-      </div>
+        </div>
 
         <div class="col-xs-6 col-sm-4">
-          <div id="map" style="width: 100%; height: 700px;"></div>
-
-            <% content_for(:after_js) do %>
-              <script>
-                $(document).ready(function() {
-                  var handler = Gmaps.build('Google');
-                  handler.buildMap({ internal: { id: 'map' } }, function() {
-                    markers = handler.addMarkers(<%= raw @place_markers_hash.to_json %>);
-                    console.log(markers);
-                    handler.bounds.extendWith(markers);
-                    handler.fitMapToBounds();
-                    if (markers.length == 0) {
-                      handler.getMap().setZoom(6);
-                    } else if (markers.length == 1) {
-                      handler.getMap().setZoom(8);
-                    }
-                  });
-                });
-
-
-               </script>
-              <% end %>
-
-        </div>
-        <div class="results-wrapper">
-
-          <!-- <div class="container"> -->
-            <div class="row">
-
-                    <% @races.each do |race| %>
-                      <%= link_to race_path(race) do %>
-                        <div class="col-xs-12 col-sm-5 col-md-4 race-results">
-                            <div class="image-race" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path race.picture, height: 300, width: 400, crop: :fill %>');">
-                              <div class="card-category-index"> J - <%=(race.date - Date.today).to_i %></div>
-                                <div class="card-description">
-                                  <h2></h2>
-                                   <p></p>
-                                </div>
-                              <div class="race-card">
-                                <li class="list-group-item"><%=race.name %></li>
-                                <a class="list-group-item"><%=race.total_distance%> km | <%=race.level%> | <%=race.date %></a>
-                              </div>
-                            </div>
-                        </div>
-                      <% end %>
-                   <% end %>
-                <!-- </div> -->
-                <!-- </div> -->
-              <!-- </div> -->
-            </div>
+          <div id="map" style="width: 100%; height: 700px;">
           </div>
+
+          <% content_for(:after_js) do %>
+            <script>
+              $(document).ready(function() {
+                var handler = Gmaps.build('Google');
+                handler.buildMap({ internal: { id: 'map' } }, function() {
+                  markers = handler.addMarkers(<%= raw @place_markers_hash.to_json %>);
+                  console.log(markers);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                  if (markers.length == 0) {
+                    handler.getMap().setZoom(6);
+                  } else if (markers.length == 1) {
+                    handler.getMap().setZoom(8);
+                  }
+                });
+              });
+            </script>
+          <% end %>
+        </div>
       </div>
+    </div>
   </div>
 </div>
