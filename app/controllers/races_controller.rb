@@ -9,17 +9,19 @@ class RacesController < ApplicationController
 
     @races = @races.where('location ILike ?', "%#{params[:search][:place]}%").where.not(latitude: nil, longitude: nil)
     if params[:search][:date] != ""
-      binding.pry
+      # binding.pry
+    @races = @races.where('date ILike ?', "%#{params[:search][:date]}%")
     end
 
     # sport ILike ?
     #"%#{params[:search][:sports_name]}%",
-    # binding.pry
 
-    @place_markers_hash = Gmaps4rails.build_markers(@races) do |race, marker|
-      marker.lat race.latitude
-      marker.lng race.longitude
-      marker.infowindow( race.name )
+    if @races
+      @place_markers_hash = Gmaps4rails.build_markers(@races) do |race, marker|
+        marker.lat race.latitude
+        marker.lng race.longitude
+        marker.infowindow( race.name )
+      end
     end
 
 
