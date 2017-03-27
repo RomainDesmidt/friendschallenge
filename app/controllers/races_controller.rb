@@ -4,32 +4,37 @@ class RacesController < ApplicationController
   def index
 
     # @races = Sport.where({name: params[:search][:sports_name]})
+    if params[:search][:sports_name].nil?
+      @races = Race.all
+    else
+      @races = Race.joins(:sports).where("sports.name IN (?)", params[:search][:sports_name])
+    end
 
-    @races = Race.joins(:sports).where("sports.name IN (?)", params[:search][:sports_name])
+    unless params[:search][:place].nil?
+      @races = @races.where("location ILike ?", "%#{params[:search][:place]}%").where.not(latitude: nil, longitude: nil)
+    end
 
-    @races = @races.where('location ILike ?', "%#{params[:search][:place]}%").where.not(latitude: nil, longitude: nil)
+    # if @races.any?
     if params[:search][:date] != ""
       # binding.pry
-    @races = @races.where('date ILike ?', "%#{params[:search][:date]}%")
+      @date_search = Date.parse(params[:search][:date])
+      @races = @races.where(date: @date_search)
     end
+    # end
 
     # sport ILike ?
     #"%#{params[:search][:sports_name]}%",
 
     if @races
+      # binding.pry
       @place_markers_hash = Gmaps4rails.build_markers(@races) do |race, marker|
-        marker.lat race.latitude
-        marker.lng race.longitude
-        marker.infowindow( race.name )
+        marker.lat        race.latitude
+        marker.lng        race.longitude
+        marker.title      race.name
+        marker.infowindow render_to_string(partial: "/races/map_infowindow", locals:  { race: race })
+        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
       end
     end
-
-
-    # select (*
-    #   FROM sports
-    #   INNER JOIN race_sports
-    #   ON sports.id = race_sports.sport_id
-    #   ).where(race.sports IN params[:search][:sports_name])
   end
 
   def show
