@@ -9,6 +9,16 @@ module PagesHelper
     end
   end
 
+  # def linear_backgrounds_for(sports)
+  #   colors = sports.map do |sport|
+  #     linear_background_for(sport)
+  #   end
+  #   positions = [0, 50, 100]
+  #   colors.map.with_index do |color, index|
+  #     "#{colors}, "
+  #   end
+  # end
+
   def picture_path_for(sport)
     case sport.name
     when "Cyclisme" then "bike.jpg"
@@ -29,3 +39,14 @@ module PagesHelper
     end
   end
 end
+  # def icon_for(sport)
+  #   case sport.name
+  #   when "Cyclisme" then "sport_icons/cycling.png"
+  #   when "Course à pied" then "running.png"
+  #   when "Natation" then "swimming.png"
+  #   else
+  #     "draft-logo.png"
+  #   end
+
+  # end
+# end
