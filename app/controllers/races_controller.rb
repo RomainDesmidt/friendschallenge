@@ -17,6 +17,7 @@ class RacesController < ApplicationController
     end
 
     @sports = Sport.all
+
   end
 
   def show

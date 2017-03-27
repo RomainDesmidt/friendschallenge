@@ -28,21 +28,22 @@
             <%= submit_tag "GO !", class: "btn-search"%>
           </div>
           <div class="row">
+
             <div class="form-item2">
-            <select name="form-item2">
-              <option value="value1">Débutant</option>
-              <option value="value2" selected>Intermédiaire</option>
-              <option value="value3">Expert</option>
-            </select>
-            <%= search_field :search, :price, placeholder: 'PRIX ?', class: "search-form", style: "text-align: center" %>
+            <div class="search-form">
+              <% level_options = -'<option value="">NIVEAU</option><option value="1">Débutant</option><option value="2">Intermédiaire</option><option value="3">Expert</option>' %>
+              <%= select_tag :level, level_options.html_safe, class: "form-control" %>
+
             </div>
+              <%= search_field :search, :price, placeholder: 'PRIX ?', class: "search-form", style: "text-align: center" %>
             </div>
+         </div>
         <% end %>
       </div>
     </div>
   </div>
   <div class="results-wrapper-index">
-    <div class="container">
+    <div class="container_index-full">
       <div class="row">
         <div class="col-xs-6 col-sm-8">
 
@@ -50,7 +51,7 @@
             <% @races.each do |race| %>
               <div class="col-xs-12 col-sm-6">
               <%= link_to race_path(race) do %>
-                <div class="card-index" style="background-image: linear-gradient(rgba(249, 232, 35, 0.81), rgba(61, 228, 20, 0.69)),url('<%= cl_image_path race.picture, height: 300, width: 400, crop: :fill %>');">
+                <div class="card-index" style="<%= "background-image: #{multi_linear_background_for(race.sports)}, url('#{race.picture}'); background-size: cover;"%>">
                   <div class="card-date-J-index"> J - <%=(race.date - Date.today).to_i %></div>
                   <div class="card-level-index"><%=race.level%></div>
                   <div class="card-description-race-index text-center">
@@ -66,7 +67,7 @@
         </div>
 
         <div class="col-xs-6 col-sm-4">
-          <div id="map" style="width: 130%; height: 700px;">
+          <div id="map" style="width: 100%; height: 700px;">
           </div>
 
           <% content_for(:after_js) do %>

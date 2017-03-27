@@ -9,6 +9,18 @@ module PagesHelper
     end
   end
 
+  def multi_linear_background_for(sports)
+    gradients = ""
+    level = 10
+
+    sports.each do |sport|
+      gradients += "#{linear_background_for(sport)} #{level}%, "
+      level += (100 / sports.count)
+    end
+
+    "linear-gradient(-225deg, #{gradients} rgba(255, 255, 255, 0.5) 100%)"
+  end
+
   def picture_path_for(sport)
     case sport.name
     when "Cyclisme" then "bike.jpg"
