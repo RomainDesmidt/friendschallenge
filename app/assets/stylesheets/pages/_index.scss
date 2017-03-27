@@ -1,3 +1,65 @@
 @import "home";
 @import "styleguide";
-@import "show"
+@import "show";
+
+.race-index-card {
+   margin-bottom: 20px;
+  // margin-top: 10px;
+  a {
+    text-decoration: none;
+  }
+
+}
+
+.card-index {
+  height: 300px;
+
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover !important;
+
+  color: white;
+  position: relative;
+  margin-bottom: 20px;
+
+ //  top: 68px;
+ // -webkit-transition: .2s ease-in-out;
+ //  transition: .2s ease-in-out;
+}
+
+.gm-style img {
+  max-width: 200px;
+}
+
+.card-date-J-index {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.card-level-index {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card-description-race-index {
+
+  position:absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+
+  p {
+  margin-top: 20px;
+
+  }
+  h2 {
+  margin-top: 0px;
+  font-weight: 700;
+  }
+  h4 {
+  margin-top: 0px;
+  font-weight: 700;
+  }
+}
+
