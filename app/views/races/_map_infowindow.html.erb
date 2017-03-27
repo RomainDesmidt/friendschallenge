@@ -1,3 +1,8 @@
-<h2><%= race.name %></h2>
-<p><%= race.date %></p>
-<%= image_tag race.picture %>
+<div class="row">
+  <h2><%= race.name %></h2>
+  <p><%= race.date %></p>
+  <%= link_to race_path(race) do%>
+  <%= image_tag race.picture %>
+  <% end %>
+</div>
+

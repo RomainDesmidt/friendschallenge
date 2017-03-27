@@ -13,7 +13,10 @@ class RacesController < ApplicationController
       marker.title      race.name
       marker.infowindow render_to_string(partial: "/races/map_infowindow", locals:  { race: race })
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+
     end
+
+    @sports = Sport.all
   end
 
   def show
