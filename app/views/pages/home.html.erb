@@ -11,7 +11,7 @@
       <div class="form-item1">
         <% @sports.each do |sport| %>
           <%= label_tag '', nil, class: "buttons-sports", style: "background-image: linear-gradient(-225deg, #{linear_background_for(sport)} 20%, rgba(255, 255, 255, 0.5) 80%), url('#{image_path picture_path_for(sport)}'); background-size: cover;" do %>
-            <%= check_box_tag "search[sports_ids][]", sport.id, nil, class: "hide_checkbox" %>
+            <%= check_box_tag "search[sports_name][]", sport.name, nil, class: "hide_checkbox" %>
             <p class="sports-label"><%= placeholder_for(sport) %></p>
           <% end %>
         <% end %>
@@ -26,5 +26,3 @@
     <% end %>
   </div>
 </div>
-
-
