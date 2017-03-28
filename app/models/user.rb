@@ -8,13 +8,14 @@ class User < ApplicationRecord
   #database
   has_many :user_sports, dependent: :destroy
   has_many :sports, through: :user_sports
-  has_many :race_groups, dependent: :nullify
 
-  has_many :races, through: :race_groups
+  has_many :race_groups, dependent: :nullify
+  # has_many :races, through: :race_groups
+
   has_many :group_memberships, dependent: :destroy
 
   has_many :race_groups_as_member, through: :group_memberships, source: :race_group
-
+  has_many :races, through: :race_groups_as_member
   #validation
   validates :first_name, presence: true
   validates :last_name, presence: true

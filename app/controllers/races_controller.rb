@@ -32,6 +32,9 @@ class RacesController < ApplicationController
 
   def show
     @race = Race.find(params[:id])
+    if current_user
+      @race_group = @race.race_groups.joins(:group_memberships).where("group_memberships.user_id = ?", current_user.id).first
+    end
     @sports = Sport.all
   end
 end
