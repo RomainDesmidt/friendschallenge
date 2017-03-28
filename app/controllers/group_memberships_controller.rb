@@ -5,7 +5,5 @@ class GroupMembershipsController < ApplicationController
     @race_group = RaceGroup.find(params[:race_group_id])
     @new_member = GroupMembership.create(user:current_user, race_group: @race_group, status: "Intéressé" )
     redirect_to race_group_path(@race_group)
-    if sign_in_and_redirect @user
-  end
 
 end
