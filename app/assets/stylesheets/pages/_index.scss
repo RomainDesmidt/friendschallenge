@@ -6,7 +6,6 @@
   margin-top: 80px;
 }
 
-
 .race-index-card {
    margin-bottom: 20px;
   // margin-top: 10px;
@@ -43,6 +42,9 @@
   position: absolute;
   top: 10px;
   left: 10px;
+  background-color: rgba(0, 0, 0, 0.6);;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .card-level-index {
@@ -52,19 +54,20 @@
 }
 
 .card-description-race-index {
-
   position:absolute;
-  top: 50px;
+  bottom: 0px;
   left: 0;
   right: 0;
 
   p {
   margin-top: 20px;
-
   }
+
   h2 {
-  margin-top: 0px;
+  margin-bottom: 0px;
   font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.6);;
+  padding: 10px;
   }
   h4 {
   margin-top: 0px;

@@ -7,57 +7,67 @@
         </div>
       </div>
     </div>
-    <div class="box">
-      <div class= "form-group form-items">
-        <%= form_tag races_path, method: :get do %>
-          <div class="form-item1">
-            <% @sports.each do |sport| %>
-              <%= label_tag '', nil, class: "buttons-sports", style: "background-image: linear-gradient(-225deg, #{linear_background_for(sport)} 20%, rgba(255, 255, 255, 0.5) 80%), url('#{image_path picture_path_for(sport)}'); background-size: cover;" do %>
-                <%= check_box_tag "search[sports_name][]", sport.name, nil, class: "hide_checkbox" %>
-                <p class="sports-label"><%= placeholder_for(sport) %></p>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="row">
-            <div class="form-item2">
-            <%= search_field :search, :place, placeholder: 'OÙ ?', class: "search-form", style: "text-align: center" %>
-            <%= date_field :search, :date, placeholder: 'QUAND ?', class: "search-form", style: "text-align: center" %>
-            </div>
-          </div>
-          <div class="form-item3 text-center">
+     <div class="box">
+
+     <%= link_to "Retourner pour chercher une autre course", root_path %>
+           <!--<div class= "form-group form-items">
+             <%= form_tag races_path, method: :get do %>
+               <div class="form-item1">
+                 <% @sports.each do |sport| %>
+                   <%= label_tag '', nil, class: "buttons-sports", style: "background-image: linear-gradient(-225deg, #{linear_background_for(sport)} 20%, rgba(255, 255, 255, 0.5) 80%), url('#{image_path picture_path_for(sport)}'); background-size: cover;" do %>
+                     <%= check_box_tag "search[sports_name][]", sport.name, nil, class: "hide_checkbox" %>
+                     <p class="sports-label"><%= placeholder_for(sport) %></p>
+                   <% end %>
+                 <% end %>
+               </div>
+               <div class="row">
+                 <div class="form-item2">
+                 <%= search_field :search, :place, placeholder: 'OÙ ?', class: "search-form", style: "text-align: center" %>
+                 <%= date_field :search, :date, placeholder: 'QUAND ?', class: "search-form", style: "text-align: center" %>
+                 </div>
+               </div>
+               <div class="form-it"em3 text-center">
             <%= submit_tag "GO !", class: "btn-search"%>
           </div>
           <div class="row">
-
             <div class="form-item2">
-            <div class="search-form">
-              <% level_options = -'<option value="">NIVEAU</option><option value="1">Débutant</option><option value="2">Intermédiaire</option><option value="3">Expert</option>' %>
-              <%= select_tag :level, level_options.html_safe, class: "form-control" %>
+              <div class="search-form">
+                <% level_options = -'<option value="">NIVEAU</option><option value="1">Débutant</option><option value="2">Intermédiaire</option><option value="3">Expert</option>' %>
+                <%= select_tag :level, level_options.html_safe, class: "form-control" %>
 
-            </div>
+              </div>
               <%= search_field :search, :price, placeholder: 'PRIX ?', class: "search-form", style: "text-align: center" %>
             </div>
          </div>
         <% end %>
-      </div>
+      </div>-->
     </div>
   </div>
   <div class="results-wrapper-index">
     <div class="container_index-full">
       <div class="row">
-        <div class="col-xs-6 col-sm-8">
+        <div class="col-xs-6 col-sm-8 col-md-8">
 
           <div class="row">
             <% @races.each do |race| %>
-              <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 col-sm-6 col-md-4">
               <%= link_to race_path(race) do %>
-                <div class="card-index" style="<%= "background-image: #{multi_linear_background_for(race.sports)}, url('#{race.picture}'); background-size: cover;"%>">
+              <!-- dans baground image #{multi_linear_background_for(race.sports)}, -->
+                <div class="card-index" style="<%= "background-image: url('#{race.picture}'); background-size: cover;"%>">
                   <div class="card-date-J-index"> J - <%=(race.date - Date.today).to_i %></div>
-                  <div class="card-level-index"><%=race.level%></div>
+                  <div class="level-sticker">
+                  <% if race.level == "débutant" %>
+                    <span class="label label-success">Débutant</span>
+                  <% elsif race.level == "intermédiaire" %>
+                    <span class="label label-warning">Intermédiaire</span>
+                  <% elsif race.level == "expert" %>
+                    <span class="label label-danger">Expert</span>
+                  <% end %>
+                  </div>
                   <div class="card-description-race-index text-center">
-                      <p><%=race.date%></p>
-                      <h2><%=race.name.upcase %></h2>
-                      <h4><%=race.total_distance%> km</h4>
+                      <p><%= race.date %></p>
+                      <h4><%= race.total_distance %> km</h4>
+                      <h2><%= race.name.upcase %></h2>
                   </div>
                 </div>
               <% end %>
@@ -66,7 +76,7 @@
           </div>
         </div>
 
-        <div class="col-xs-6 col-sm-4">
+        <div class="col-xs-6 col-sm-4 col-md-4">
           <div id="map" style="width: 100%; height: 700px;">
           </div>
 
