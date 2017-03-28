@@ -16,15 +16,15 @@
 // }
 
 .raceshow-wrapper {
-  position: relative;
   height: 60vh;
+  border-radius: 5px;
+  position: relative;
 }
 
 .event-info {
-  position: absolute;
-  top: 30px;
-  left: 20px;
-  height: 70px;
+  // top: 30px;
+  // left: 20px;
+  margin-top: 20vh;
   color: white;
 }
 
@@ -36,20 +36,28 @@
   color: white;
 }
 
-.event-title {
+#event-title {
   font-size: 40px;
   letter-spacing: 2px;
+  font-weight: 700;
+  margin-top: 0px;
 }
 
 .bulletpoints {
+  font-weight: 700;
+  color: white;
   line-height: 20px;
-  font-family: $base-font;
+  font-family: $header-font;
+  font-size: 25px;
+  padding-left: 0px;
 }
 
 .link {
   color: white;
   text-decoration: underline;
   padding-left: 20px;
+  font-size: 17px;
+  font-weight: lighter;
 }
 
 .link:hover {
@@ -81,12 +89,12 @@
 }
 
 .description-text {
-  font-size: 13px;
+  font-size: 17px;
+  text-align: justify;
 }
 .interested-description {
-  text-align: center;
   // justify-content: center;
-  // align-items: center;
+  align-items: center;
   // height: 60vh;
   margin-top: 130px;
 }
@@ -94,11 +102,11 @@
 .btn-interested {
   margin-top: 20px;
   padding: 20px 20px;
-  border: 1px solid rgba(26,140,51,0.6);
   font-family: $header-font;
   font-weight: bold;
   font-size: 30px;
-  background: -webkit-linear-gradient(-225deg, rgba(25,52,127,0.6) 0%,rgba(26,140,51,0.8) 33%,rgba(117,181,28,0.6) 66%,rgba(244,218,19,0.6) 100%);
+  background: -webkit-linear-gradient(-225deg, rgba(0,107,166,0.6) 0%,rgba(239,62,54,0.6) 50%,rgba(253,231,76,0.8) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  border: none;
 }

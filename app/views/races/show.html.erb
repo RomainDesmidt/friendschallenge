@@ -4,14 +4,16 @@
   </div>
 </div> -->
 
-  <div class="raceshow-wrapper" style="background-image: /*linear-gradient(-225deg, #{linear_backgrounds_for(@race.sports)})*/url('<%= cl_image_path @race.picture %>'); background-size: cover;">
+  <div class="raceshow-wrapper" style="<%= "background-image: #{multi_linear_background_for(@race.sports)}, url('#{cl_image_path @race.picture, effect: "grayscale"}'); background-size: cover;" %>">
+  <div class="container">
     <div class="event-info">
       <div class="event-keypoints">
-        <h1 class="event-title"><%= @race.name.upcase %></h1>
-        <p class="bulletpoints"><%= @race.date %></p>
-        <p class="bulletpoints"><%= @race.total_distance %> km - <%= @race.location%><%= link_to "En savoir +", @race.official_event_url, class: "link" %></p>
+        <p><%= @race.date %></p>
+        <h1 id="event-title"><%= @race.name.upcase %></h1>
+        <h3 class="bulletpoints"><%= @race.total_distance %> km - <%= @race.location%><%= link_to "En savoir +", @race.official_event_url, class: "link" %></h3>
 
       </div>
+    </div>
     </div>
     <div class="level-sticker">
       <% if @race.level == "débutant" %>
