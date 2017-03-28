@@ -1,25 +1,28 @@
 <div class="banner-interested">
   <div class="text-interested text-center">
-    <%= "#{@race_group.user.first_name} vous a invité: Rejoindre le groupe" %>
+    <%= "#{@race_group.user.first_name} vous a invité: REJOINDRE LE GROUPE" %>
   </div>
-  <div class="raceshow-wrapper" style="background-image: /*linear-gradient(-225deg, #{linear_backgrounds_for(@race.sports)})*/url('<%= cl_image_path @race.picture %>'); background-size: cover;">
+</div>
+  <div class="raceshow-wrapper" style="<%= "background-image: #{multi_linear_background_for(@race.sports)}, url('#{cl_image_path @race.picture, effect: "grayscale"}'); background-size: cover;" %>">
+  <div class="container">
     <div class="event-info">
       <div class="event-keypoints">
-        <h1 class="event-title"><%= @race.name.upcase %></h1>
-        <p class="bulletpoints"><%= @race.date %></p>
-        <p class="bulletpoints"><%= @race.total_distance %> km - <%= @race.location%><%= link_to "En savoir +", @race.official_event_url, class: "link" %></p>
+        <p><%= @race.date %></p>
+        <h1 id="event-title"><%= @race.name.upcase %></h1>
+        <h3 class="bulletpoints"><%= @race.total_distance %> km - <%= @race.location%><%= link_to "En savoir +", @race.official_event_url, class: "link" %></h3>
       </div>
     </div>
-    <div class="level-sticker">
-      <% if @race.level == "débutant" %>
-        <span class="label label-success">Débutant</span>
-      <% elsif @race.level == "intermédiaire" %>
-        <span class="label label-warning">Intermédiaire</span>
-      <% elsif @race.level == "expert" %>
-        <span class="label label-danger">Expert</span>
-      <% end %>
-    </div>
   </div>
+  <div class="level-sticker">
+    <% if @race.level == "débutant" %>
+      <span class="label label-success">Débutant</span>
+    <% elsif @race.level == "intermédiaire" %>
+      <span class="label label-warning">Intermédiaire</span>
+    <% elsif @race.level == "expert" %>
+      <span class="label label-danger">Expert</span>
+    <% end %>
+  </div>
+</div>
 <div class="trail-map-and-interested-wrapper">
   <div class="container">
     <div class="row">
@@ -46,7 +49,7 @@
               <%= @race.description %>
             </div>
             <!-- <% if @race.members.to_a.include?(current_user) %> -->
-              <!-- <%= link_to "Voir mon Groupe", race_group_path(@race_group) %> -->
+              <!-- <%= link_to "VOIR MON GROUPE", race_group_path(@race_group) %> -->
               <!-- <% else %> -->
               <!-- <%= link_to "CA M'INTÉRESSE !", race_race_groups_path(@race), method: :post, class: "btn-interested"%> -->
               <!-- <% end %> -->
