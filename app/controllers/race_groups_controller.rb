@@ -1,10 +1,16 @@
 class RaceGroupsController < ApplicationController
+  skip_before_action :authenticate_user!
   def show
-    @race_group = RaceGroup.find_by_user(current_user)
+    @race_group = RaceGroup.find(params[:id])
+    @race = @race_group.race
+    @members = @race_group.members
   end
 
-  def create(race)
-    @race_group = RaceGroup.new(current_user, race)
+  def create
+    # binding.pry
+    @race_group = RaceGroup.new(user: current_user, race: Race.find(params[:race_id]))
+    @race_group.save
+    @new_member = GroupMembership.create(user: current_user, race_group: @race_group, status: "Intéressé")
   end
 
 end

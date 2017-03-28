@@ -36,7 +36,11 @@
             <div class="description-text">
               <%= @race.description %>
             </div>
-              <%= submit_tag "CA M'INTÉRESSE !", class: "btn-interested"%>
+            <% if @race.members.to_a.include?(current_user) %>
+              <%= link_to "Voir mon Groupe", race_group_path(@race_group) %>
+              <% else %>
+              <%= link_to "CA M'INTÉRESSE !", race_race_groups_path(@race), method: :post, class: "btn-interested"%>
+              <% end %>
             </div>
         </div>
       </div>
