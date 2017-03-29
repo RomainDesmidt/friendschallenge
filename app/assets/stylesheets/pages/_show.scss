@@ -6,18 +6,16 @@
   height: 50px;
 }
 
-.text-interested input {
+.text-interested {
   font-family: $header-font;
-  font-size: 30px;
+  font-size: 20px;
   background: none;
   color: white;
   border: none;
-  text-decoration: underline;
 }
 
 .raceshow-wrapper {
   height: 60vh;
-  border-radius: 5px;
   position: relative;
 }
 
@@ -111,5 +109,15 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   border: none;
+}
 
+.my-group {
+  color: white;
+  margin-top: 45px;
+}
+
+.member-status {
+  color: #202126;
+  font-size: 15px;
+  margin-top: 5px;
 }

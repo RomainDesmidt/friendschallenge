@@ -1,3 +1,11 @@
+<% if view_mode == :race_group && group_membership.nil? %>
+  <div class="banner-interested">
+    <div class="text-interested">
+       <p><%= race_group.user.first_name %> compte sur toi pour rejoindre sa team !</p>
+    </div>
+  </div>
+<% end %>
+
 <div class="raceshow-wrapper" style="<%= "background-image: #{multi_linear_background_for(race.sports)}, url('#{cl_image_path @race.picture, effect: "grayscale"}'); background-size: cover;" %>">
   <div class="container">
     <div class="event-info">
@@ -28,27 +36,25 @@
       </div>
 
       <div class="col-xs-6">
-        <% if view_mode == "race_group" %>
+        <% if view_mode == :race_group %>
           <div class="race-group-friends">
-                <h2>MES AMIS DU GROUPE :</h2>
-                  <% @members.each do |member| %>
-                  <% if member.facebook_picture_url.nil? %>
-                    <%= image_tag "http://lorempixel.com/50/50/" %>
-                    <% else %>
-                    <%= image_tag member.facebook_picture_url %>
-                    <% end %>
-                  <% end %>
-                <% if group_membership %>
-                  <div>
-
-                    <%= group_membership.status %>
-                    <p>inviter vos amis</p>
-                    <div class="fb-share-button" data-href="<%= race_group_url(race_group) %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= race_group_url(race_group) %>&amp;src=sdkpreparse">Invite tes potes</a></div>
-
-                  </div>
-                <% else %>
-                  <p><%= race_group.user.first_name %> vous invite a rejoindre cette superbe compet :)</p>
-                <% end %>
+            <h2 class="my-group">MA TEAM</h2>
+            <% @memberships.each do |membership| %>
+              <% if membership.user.facebook_picture_url.nil? %>
+                <%= image_tag "http://lorempixel.com/50/50/" %>
+              <% else %>
+                <%= image_tag membership.user.facebook_picture_url, data: { toggle: "popover", title: membership.user.first_name, content: membership.status } %>
+              <% end %>
+            <% end %>
+            <% if group_membership %>
+           <!--    <div class="my-status">
+                <p><%= group_membership.status %></p> -->
+                <p class="btn-interested">AJOUTER DES AMIS</p>
+                 <div class="fb-share-button" data-href="<%= race_group_url(race_group) %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= race_group_url(race_group) %>&amp;src=sdkpreparse">Invite tes potes</a>
+                 </div>
+                <%= race_group_url(race_group) %>
+              </div>
+            <% end %>
             </div>
           <% end %>
 
@@ -56,7 +62,7 @@
             <div class="description-text">
               <%= race.description %>
             </div>
-            <% if view_mode == "race" %>
+            <% if view_mode == :race %>
               <% if group_membership %><!-- current user already member -->
                 <%= link_to "VOIR MON GROUPE", race_group_path(race_group), class: "btn-interested" %>
                 <% else %>
@@ -80,11 +86,18 @@
 
 <% content_for :after_js do %>
   <div id="fb-root"></div>
-  <script>(function(d, s, id) {
+  <script>
+  (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
     js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8&appId=1469335619785605";
     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+  }(document, 'script', 'facebook-jssdk'));
+
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+  </script>
+
 <% end %>
