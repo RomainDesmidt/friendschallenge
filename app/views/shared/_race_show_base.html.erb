@@ -1,0 +1,64 @@
+<div class="raceshow-wrapper" style="<%= "background-image: #{multi_linear_background_for(race.sports)}, url('#{cl_image_path @race.picture, effect: "grayscale"}'); background-size: cover;" %>">
+  <div class="container">
+    <div class="event-info">
+      <div class="event-keypoints">
+        <p><%= race.date %></p>
+        <h1 id="event-title"><%= race.name.upcase %></h1>
+        <h3 class="bulletpoints"><%= race.total_distance %> km - <%= race.location%><%= link_to "En savoir +", race.official_event_url, class: "link" %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="level-sticker">
+    <% if race.level == "débutant" %>
+      <span class="label label-success">Débutant</span>
+    <% elsif race.level == "intermédiaire" %>
+      <span class="label label-warning">Intermédiaire</span>
+    <% elsif race.level == "expert" %>
+      <span class="label label-danger">Expert</span>
+    <% end %>
+  </div>
+</div>
+<div class="trail-map-and-interested-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="trail-map">
+            <%= cl_image_tag race.trail_map_picture %>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <% if view_mode == "race_group" %>
+          <div class="race-group-friends">
+              <% if current_user %>
+                <h2>MES AMIS DU GROUPE :</h2>
+                    <% @members.each do |member| %>
+                    <% if current_user.facebook_picture_url.nil? %>
+                      <%= image_tag "http://lorempixel.com/50/50/" %>
+                      <% else %>
+                      <%= image_tag member.facebook_picture_url %>
+                      <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+          <% end %>
+
+          <div class="interested-description text-center">
+            <div class="description-text">
+              <%= race.description %>
+            </div>
+            <% if view_mode == "race" %>
+              <% if race.members.to_a.include?(current_user) %>
+                <%= link_to "VOIR MON GROUPE", race_group_path(race_group), class: "btn-interested" %>
+                <% else %>
+                <%= link_to "CA M'INTÉRESSE !", race_race_groups_path(race), method: :post, class: "btn-interested"%>
+              <% end %>
+            <% else %>
+              <%= link_to "JE CONFIRME MA PRÉSENCE !", race_race_group_group_memberships_path(@race.id, @race_group.id), method: :post, class: "btn-interested"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
