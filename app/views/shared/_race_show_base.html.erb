@@ -10,7 +10,7 @@
   <div class="container">
     <div class="event-info">
       <div class="event-keypoints">
-        <p><%= race.date %></p>
+        <p><%= l(race.date, format: '%d %B %Y') %></p>
         <h1 id="event-title"><%= race.name.upcase %></h1>
         <h3 class="bulletpoints"><%= race.total_distance %> km - <%= race.location%><%= link_to "En savoir +", race.official_event_url, class: "link" %></h3>
       </div>
