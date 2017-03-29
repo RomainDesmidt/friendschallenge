@@ -105,6 +105,23 @@
   cursor: pointer;
 }
 
+.sharing {
+  display: flex;
+  align-items: center;
+}
+
+.sharing-options {
+  display: inline-block !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-sharing-link {
+  color: #202126;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
 .interested-description {
   // justify-content: center;
   align-items: center;

@@ -40,16 +40,8 @@ module PagesHelper
       "Je fais rien"
     end
   end
-
-  def sticker_for(group_membership)
-    case group_membership.status
-    when "Cyclisme" then "JE PÉDALE"
-    when "Course à pied" then "JE COURS"
-    when "Natation" then "JE NAGE"
-    else
-      "Je fais rien"
-    end
 end
+
 
   # def icon_for(sport)
   #   case sport.name

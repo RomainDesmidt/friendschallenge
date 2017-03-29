@@ -5,7 +5,6 @@
     </div>
   </div>
 <% end %>
-
 <div class="raceshow-wrapper" style="<%= "background-image: #{multi_linear_background_for(race.sports)}, url('#{cl_image_path @race.picture, effect: "grayscale"}'); background-size: cover;" %>">
   <div class="container">
     <div class="event-info">
@@ -26,7 +25,13 @@
     <% end %>
   </div>
   <div class="my-status">
-    <p><%= group_membership.status %></p>
+    <% if group_membership.nil? %>
+      <span class="label label-default">Je n'ai pas encore répondu</span>
+     <% elsif group_membership.status == "Intéressé" %>
+      <span class="label label-primary">Je suis intéressé</span>
+    <% elsif group_membership.status == "Confirmé" %>
+      <span class="label label-success">J'ai confirmé</span>
+    <% end %>
   </div>
 </div>
 <div class="trail-map-and-interested-wrapper">
@@ -49,41 +54,42 @@
                 <%= image_tag membership.user.facebook_picture_url, class: "fb-image", data: { toggle: "popover", title: membership.user.first_name, content: membership.status } %>
               <% end %>
             <% end %>
-            <% if group_membership %>
-                <p class="btn-interested">AJOUTER DES AMIS</p>
-               <div class="fb-share-button" data-href="<%= race_group_url(race_group) %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= race_group_url(race_group) %>&amp;src=sdkpreparse">Invite tes potes</a>
-               </div>
-                <%= race_group_url(race_group) %>
+          </div>
+          <% if group_membership %>
+            <div class="sharing">
+              <p class="info-sharing-link">Envie de faire grandir la team? </p>
+              <div class="sharing-options">
+                <ul>
+                  <li><div class="fb-share-button" data-href="<%= race_group_url(race_group) %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= race_group_url(race_group) %>&amp;src=sdkpreparse"></a></div></li>
+                  <li><%= race_group_url(race_group) %></li>
+                </ul>
               </div>
-            <% end %>
             </div>
           <% end %>
-
-          <div class="interested-description text-center">
-            <div class="description-text">
-              <%= race.description %>
-            </div>
-            <% if view_mode == :race %>
-              <% if group_membership %><!-- current user already member -->
-                <%= link_to "VOIR MON GROUPE", race_group_path(race_group), class: "btn-interested" %>
-                <% else %>
-                <%= link_to "CA M'INTÉRESSE !", race_race_groups_path(race), method: :post, class: "btn-interested"%>
-              <% end %>
-            <% else %><!-- race group view -->
-              <% if group_membership.nil? %><!-- current user NOT member yet -->
-                <%= link_to "JE SUIS INTÉRESSÉ !", race_race_group_group_memberships_path(race.id, race_group.id), method: :post, class: "btn-interested"%>
-              <% elsif group_membership.status == "Intéressé" %><!-- current user interested -->
-                <%= link_to "JE CONFIRME MA PRÉSENCE !", confirm_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
-              <% elsif group_membership.status == "Confirmé" %>
-                <%= link_to "JE DOIS ANNULER :/", cancel_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
-              <% end %>
-            <% end %>
-          </div>
+        <% end %>
+        <div class="description-text">
+          <%= race.description %>
         </div>
+        <% if view_mode == :race %>
+          <% if group_membership %><!-- current user already member -->
+            <%= link_to "VOIR MON GROUPE", race_group_path(race_group), class: "btn-interested" %>
+            <% else %>
+            <%= link_to "CA M'INTÉRESSE !", race_race_groups_path(race), method: :post, class: "btn-interested"%>
+          <% end %>
+        <% else %><!-- race group view -->
+          <% if group_membership.nil? %><!-- current user NOT member yet -->
+            <%= link_to "JE SUIS INTÉRESSÉ !", race_race_group_group_memberships_path(race.id, race_group.id), method: :post, class: "btn-interested"%>
+          <% elsif group_membership.status == "Intéressé" %><!-- current user interested -->
+            <%= link_to "JE CONFIRME MA PRÉSENCE !", confirm_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
+          <% elsif group_membership.status == "Confirmé" %>
+            <%= link_to "JE DOIS ANNULER :/", cancel_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
 
 <% content_for :after_js do %>
   <div id="fb-root"></div>
