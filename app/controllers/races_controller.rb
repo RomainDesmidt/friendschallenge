@@ -25,9 +25,7 @@ class RacesController < ApplicationController
         marker.infowindow render_to_string(partial: "/races/map_infowindow", locals:  { race: race })
       end
     end
-
     @sports = Sport.all
-
   end
 
   def show
