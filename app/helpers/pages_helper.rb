@@ -21,16 +21,6 @@ module PagesHelper
     "linear-gradient(-225deg, #{gradients} rgba(255,255,255,0.5) 100%)"
   end
 
-  # def linear_backgrounds_for(sports)
-  #   colors = sports.map do |sport|
-  #     linear_background_for(sport)
-  #   end
-  #   positions = [0, 50, 100]
-  #   colors.map.with_index do |color, index|
-  #     "#{colors}, "
-  #   end
-  # end
-
   def picture_path_for(sport)
     case sport.name
     when "Cyclisme" then "bike.jpg"
@@ -50,7 +40,17 @@ module PagesHelper
       "Je fais rien"
     end
   end
+
+  def sticker_for(group_membership)
+    case group_membership.status
+    when "Cyclisme" then "JE PÉDALE"
+    when "Course à pied" then "JE COURS"
+    when "Natation" then "JE NAGE"
+    else
+      "Je fais rien"
+    end
 end
+
   # def icon_for(sport)
   #   case sport.name
   #   when "Cyclisme" then "sport_icons/cycling.png"
