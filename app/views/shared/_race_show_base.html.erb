@@ -30,15 +30,23 @@
       <div class="col-xs-6">
         <% if view_mode == "race_group" %>
           <div class="race-group-friends">
-              <% if current_user %>
                 <h2>MES AMIS DU GROUPE :</h2>
-                    <% @members.each do |member| %>
-                    <% if current_user.facebook_picture_url.nil? %>
-                      <%= image_tag "http://lorempixel.com/50/50/" %>
-                      <% else %>
-                      <%= image_tag member.facebook_picture_url %>
-                      <% end %>
+                  <% @members.each do |member| %>
+                  <% if member.facebook_picture_url.nil? %>
+                    <%= image_tag "http://lorempixel.com/50/50/" %>
+                    <% else %>
+                    <%= image_tag member.facebook_picture_url %>
                     <% end %>
+                  <% end %>
+                <% if group_membership %>
+                  <div>
+
+                    <%= group_membership.status %>
+                    <p>inviter vos amis</p>
+                    <%= race_group_url(race_group) %>
+                  </div>
+                <% else %>
+                  <p><%= race_group.user.first_name %> vous invite a rejoindre cette superbe compet :)</p>
                 <% end %>
             </div>
           <% end %>
@@ -48,13 +56,19 @@
               <%= race.description %>
             </div>
             <% if view_mode == "race" %>
-              <% if race.members.to_a.include?(current_user) %>
+              <% if group_membership %><!-- current user already member -->
                 <%= link_to "VOIR MON GROUPE", race_group_path(race_group), class: "btn-interested" %>
                 <% else %>
                 <%= link_to "CA M'INTÉRESSE !", race_race_groups_path(race), method: :post, class: "btn-interested"%>
               <% end %>
-            <% else %>
-              <%= link_to "JE CONFIRME MA PRÉSENCE !", race_race_group_group_memberships_path(@race.id, @race_group.id), method: :post, class: "btn-interested"%>
+            <% else %><!-- race group view -->
+              <% if group_membership.nil? %><!-- current user NOT member yet -->
+                <%= link_to "JE SUIS INTÉRESSÉ !", race_race_group_group_memberships_path(race.id, race_group.id), method: :post, class: "btn-interested"%>
+              <% elsif group_membership.status == "Intéressé" %><!-- current user interested -->
+                <%= link_to "JE CONFIRME MA PRÉSENCE !", confirm_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
+              <% elsif group_membership.status == "Confirmé" %>
+                <%= link_to "JE DOIS ANNULER :/", cancel_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
+              <% end %>
             <% end %>
           </div>
         </div>

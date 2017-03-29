@@ -504,7 +504,7 @@ races_attributes = [
       qui souhaitent fédérer leurs collaborateurs autour d’un challenge original.\n
       \n
       N’attendez plus, rejoignez le peloton !",
-      location: "Lorient, France",
+      location: "Nantes, France",
       date: Date.new(2017,4,30),
       price: 52,
       official_event_url: "http://www.marathondenantes.com/",
