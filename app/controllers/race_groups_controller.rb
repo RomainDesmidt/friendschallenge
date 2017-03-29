@@ -4,7 +4,7 @@ class RaceGroupsController < ApplicationController
   def show
     @race_group = RaceGroup.find(params[:id])
     @race = @race_group.race
-    @members = @race_group.members
+    @memberships = @race_group.group_memberships
 
     if current_user
       @group_membership = @race_group.group_memberships.where(user_id: current_user).first
