@@ -1,18 +1,40 @@
-<div class="devise-border-form-div">
-      <h2>Log in</h2>
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-inputs">
-            <%= f.input :email, required: false, autofocus: true %>
-            <%= f.input :password, required: false %>
-            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-          </div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 
-          <div class="form-actions">
-            <%= f.button :submit, "Log in" %>
-          </div>
-        <% end %>
+      <div class="panel panel-primary">
+        <div class="panel-heading text-center">
+          <h2>LOG IN</h2>
+        </div>
 
-        <%= render "devise/shared/links" %>
+        <div class="panel-body text-center">
+
+          <div class="facebook-button">
+            <%= link_to omniauth_authorize_path(resource_name, :facebook) do %>
+              <i class="fa fa-facebook-official fa-lg"></i>
+              <%= "     Sign in with #{OmniAuth::Utils.camelize(:facebook)}" %>
+            <% end %>
+          </div>
+          <br>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email, required: false, autofocus: true %>
+              <%= f.input :password, required: false %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "LOG IN" %>
+            </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
