@@ -14,6 +14,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :group_memberships, only: [] do
+    member do
+      patch :confirm
+      patch :cancel
+    end
+  end
+
   namespace :account do
     resource :profile, only: [ :show ]
 
