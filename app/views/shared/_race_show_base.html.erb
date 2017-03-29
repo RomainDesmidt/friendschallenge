@@ -43,7 +43,8 @@
 
                     <%= group_membership.status %>
                     <p>inviter vos amis</p>
-                    <%= race_group_url(race_group) %>
+                    <div class="fb-share-button" data-href="<%= race_group_url(race_group) %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= race_group_url(race_group) %>&amp;src=sdkpreparse">Invite tes potes</a></div>
+
                   </div>
                 <% else %>
                   <p><%= race_group.user.first_name %> vous invite a rejoindre cette superbe compet :)</p>
@@ -76,3 +77,14 @@
     </div>
   </div>
 </div>
+
+<% content_for :after_js do %>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8&appId=1469335619785605";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+<% end %>
