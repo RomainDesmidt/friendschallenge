@@ -25,6 +25,9 @@
       <span class="label label-danger">Expert</span>
     <% end %>
   </div>
+  <div class="my-status">
+    <p><%= group_membership.status %></p>
+  </div>
 </div>
 <div class="trail-map-and-interested-wrapper">
   <div class="container">
@@ -43,15 +46,13 @@
               <% if membership.user.facebook_picture_url.nil? %>
                 <%= image_tag "http://lorempixel.com/50/50/" %>
               <% else %>
-                <%= image_tag membership.user.facebook_picture_url, data: { toggle: "popover", title: membership.user.first_name, content: membership.status } %>
+                <%= image_tag membership.user.facebook_picture_url, class: "fb-image", data: { toggle: "popover", title: membership.user.first_name, content: membership.status } %>
               <% end %>
             <% end %>
             <% if group_membership %>
-           <!--    <div class="my-status">
-                <p><%= group_membership.status %></p> -->
                 <p class="btn-interested">AJOUTER DES AMIS</p>
-                 <div class="fb-share-button" data-href="<%= race_group_url(race_group) %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= race_group_url(race_group) %>&amp;src=sdkpreparse">Invite tes potes</a>
-                 </div>
+               <div class="fb-share-button" data-href="<%= race_group_url(race_group) %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= race_group_url(race_group) %>&amp;src=sdkpreparse">Invite tes potes</a>
+               </div>
                 <%= race_group_url(race_group) %>
               </div>
             <% end %>
