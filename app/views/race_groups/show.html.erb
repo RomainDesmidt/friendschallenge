@@ -1,3 +1,3 @@
 <% content_for :meta_title, "#{@race.name} - Friends Challenge" %>
 <% content_for :meta_description, "Allez viens rejoins nous sur le groupe organisé par #{@race_group.user.first_name}. Nous sommes #{@race_group.group_memberships.count} participants !!!" %>
-<%= render 'shared/race_show_base', race: @race, race_group: @race_group, group_membership: @group_membership, view_mode: "race_group" %>
+<%= render 'shared/race_show_base', race: @race, race_group: @race_group, group_membership: @group_membership, view_mode: :race_group %>
