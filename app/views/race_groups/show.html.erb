@@ -32,7 +32,7 @@
         </div>
         <div class="race-group-friends">
           <% if current_user %>
-            <h2>Mes potes déjà inscrits:</h2>
+            <h2>MES AMIS DU GROUPE :</h2>
                 <% @members.each do |member| %>
                 <% if current_user.facebook_picture_url.nil? %>
                   <%= image_tag "http://lorempixel.com/50/50/" %>
