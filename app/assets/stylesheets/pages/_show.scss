@@ -1,38 +1,115 @@
-.card-event-description {
+.banner-interested {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(239,62,54,1);
+  height: 50px;
+}
+
+.text-interested input {
+  font-family: $header-font;
+  font-size: 30px;
+  background: none;
+  color: white;
+  border: none;
+  text-decoration: underline;
+}
+
+.raceshow-wrapper {
+  height: 60vh;
+  border-radius: 5px;
   position: relative;
-  margin-bottom: 20px;
-  height: 70vh;
-  width: 60vw;
+}
+
+.event-info {
+  // top: 30px;
+  // left: 20px;
+  margin-top: 20vh;
+  color: white;
 }
 
 .event-keypoints {
-  // position: relative;
   top: 120px;
   left: 20px;
   height: 20vh;
-  width: 20vw;
-  background-color: rgba(242,240,237,0.1);
-  color: #202126;
+  background: none;
+  color: white;
 }
 
-.event-title {
-  font-weight: bolder;
-  padding-bottom: 20px;
-  font-family: $base-font;
+#event-title {
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-top: 0px;
 }
 
 .bulletpoints {
-  line-height: 30px;
+  font-weight: 700;
+  color: white;
+  line-height: 20px;
+  font-family: $header-font;
+  font-size: 25px;
+  padding-left: 0px;
 }
 
+.link {
+  color: white;
+  text-decoration: underline;
+  padding-left: 20px;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.link:hover {
+  color: white;
+}
 .level-sticker {
   position: absolute;
   top: 20px;
   right: 20px;
 }
 
+.race-sports {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 30px;
+  ul {
+    list-style-type: none;
+  }
+}
 
-.raceshow-wrapper{
-margin-top: 100px;
+.trail-map-and-interested-wrapper {
+  margin-top: -110px;
+}
+
+.trail-map img {
+  border: 1px solid white;
+  width: 100%;
+}
+
+.description-text {
+  font-size: 17px;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.interested-description {
+  // justify-content: center;
+  align-items: center;
+  // height: 60vh;
+  margin-top: 130px;
+}
+
+.btn-interested {
+  margin-top: 20px;
+  padding: 20px 20px;
+  font-family: $header-font;
+  font-weight: bold;
+  font-size: 30px;
+  background: -webkit-linear-gradient(-225deg, rgba(0,107,166,0.6) 0%,rgba(239,62,54,0.6) 50%,rgba(253,231,76,0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: none;
 
 }

@@ -2,7 +2,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def home
-    @sports = Sport.all
+    @sports = [ Sport.find_by_name("Natation"),
+                Sport.find_by_name("Cyclisme"),
+                Sport.find_by_name("Course à pied")]
   end
 
   def styleguide

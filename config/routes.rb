@@ -1,17 +1,25 @@
 Rails.application.routes.draw do
-  get 'race_groups/show'
 
-  get 'profile/show'
+  resources :race_groups, only: [ :show ]
 
-  get 'races/index'
 
-  get 'races/show'
 
   root to: 'pages#home'
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :races, only: [ :index, :show ]
+  resources :races, only: [ :index, :show ] do
+    resources :race_groups, only: [ :create ] do
+      resource :group_memberships, only: [ :create ]
+    end
+  end
+
+  resources :group_memberships, only: [] do
+    member do
+      patch :confirm
+      patch :cancel
+    end
+  end
 
   namespace :account do
     resource :profile, only: [ :show ]
