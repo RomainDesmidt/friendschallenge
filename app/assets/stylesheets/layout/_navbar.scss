@@ -1,4 +1,15 @@
 /* Main class */
+.navbar-brand {
+  background: -webkit-linear-gradient(-225deg, rgba(0,107,166,0.6) 0%,rgba(239,62,54,0.6) 50%,rgba(253,231,76,0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: $header-font;
+  font-size: 30px;
+  // font-weight: bold;
+  letter-spacing: 2px;
+}
+
+
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: rgba(255, 255, 255, 0);

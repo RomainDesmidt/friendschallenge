@@ -18,7 +18,7 @@
       </div>
       <div class="form-item2">
         <%= search_field :search, :place, placeholder: 'OÙ ?', class: "search-form", style: "text-align: center" %>
-        <%= date_field :search, :date, placeholder: 'QUAND ?', class: "search-form", style: "text-align: center" %>
+        <%= date_field :search, :date, class: "search-form", style: "text-align: center", id: "datepicker", placeholder: "QUAND ?" %>
       </div>
       <div class="form-item3 text-center">
         <%= submit_tag "GO !", class: "btn-search"%>
@@ -26,3 +26,11 @@
     <% end %>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <script>
+    var picker = new Pikaday({
+                              field: $('#datepicker')[0],
+                              position: "top left" });
+  </script>
+<% end %>
