@@ -105,7 +105,7 @@
           <% elsif group_membership.status == "Intéressé" %><!-- current user interested -->
             <%= link_to "JE CONFIRME !", confirm_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
           <% elsif group_membership.status == "Confirmé" %>
-            <%= link_to "JE DOIS ANNULER :/", cancel_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
+            <%= link_to "JE DOIS ANNULER 😞", cancel_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
           <% end %>
         <% end %>
         <div class="description-text">
