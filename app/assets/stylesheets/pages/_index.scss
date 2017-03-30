@@ -3,6 +3,29 @@
 @import "show";
 @import "sessions";
 
+.link-back-root{
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: -5px;
+  transition: all .2s ease-in-out;
+  background-color: rgba(238,238,238,.7);
+  // opacity: 0.5;
+  padding: 10px 100px 10px 10px;
+  // border-radius: 20px;
+}
+
+.link-back-root-text{
+  margin-left: 100px
+}
+
+.link-back-root:hover{
+  opacity: 0.9;
+  color: black;
+  text-decoration: none;
+  // font-size: 21px;
+}
+
 .results-wrapper-index {
   margin-top: 80px;
 }
@@ -13,7 +36,6 @@
   a {
     text-decoration: none;
   }
-
 }
 
 .dropdown {
@@ -22,10 +44,8 @@
 
 .card-index {
   height: 300px;
-
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   background-size: cover !important;
-
   color: white;
   position: relative;
   margin-bottom: 20px;
