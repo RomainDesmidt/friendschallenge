@@ -35,9 +35,9 @@ class RacesController < ApplicationController
 
     if current_user
       @group_membership = @race.group_memberships.where(user_id: current_user).first
-      @race_group = @group_membership.race_group if @group_membership
+      # @race_group = @group_membership.race_group if @group_membership
       # @race_group = @race.race_groups.joins(:group_memberships).where("group_memberships.user_id = ?", current_user.id).first
-
+      return redirect_to race_group_path(@group_membership.race_group ) if @group_membership
     end
 
     @sports = Sport.all
