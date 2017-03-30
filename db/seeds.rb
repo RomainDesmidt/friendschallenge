@@ -256,7 +256,7 @@ users_attributes.each do |user_attributes|
   user = User.new(user_attributes[:attributes])
   user.medical_certificate = user_attributes[:medical_certificate]
   user.remote_profile_picture_url = user_attributes[:profile_picture_url]
-  sleep 0.4
+  sleep 0.8
   user.save
 
   sports_names = user_attributes[:sports_names]
