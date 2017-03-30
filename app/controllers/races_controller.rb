@@ -7,7 +7,7 @@ class RacesController < ApplicationController
     if @sport_names.nil?
       @races = Race.all
     else
-      @races = Race.joins(:sports).where("sports.name IN (?)", @sport_names)
+      @races = Race.joins(:sports).where("sports.name IN (?)", @sport_names).distinct
     end
 
     unless params[:search][:place].nil?
