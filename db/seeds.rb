@@ -517,7 +517,8 @@ races_attributes = [
     },
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/marathon_de_nantes/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/marathon_de_nantes/race.jpg"))
-  }
+  },
+
   {
     # LES FOULÉES NOCTURNES DE L’ÉLÉPHANT BY DECATHLON
     # Course 10
@@ -543,6 +544,7 @@ races_attributes = [
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/les_foulées_nantes/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/les_foulées_nantes/race.jpg"))
   },
+
   {
     # LES DEFIS QUIBERONNAIS 2017
     # natation : 3km
