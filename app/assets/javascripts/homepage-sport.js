@@ -1,12 +1,16 @@
-$(".buttons-sports").on("change", function(e){
-  // Change active tab
+$(document).ready(function() {
+  // on load, add scale up class on already selected checkboxes
+  $(".buttons-sports input:checked").parent(".buttons-sports").addClass("scale-up");
 
-  console.log($(this).find("input").is(':checked'));
+  $(".buttons-sports").on("change", function(e){
+    // Change active tab
+    // console.log($(this).find("input").is(':checked'));
 
-  if( $(this).find("input").is(':checked')) {
-    $(this).addClass("scale-up");
-  } else {
-    $(this).removeClass("scale-up");
-  }
-  // Show target tab-content (use class="hidden")
+    if( $(this).find("input").is(':checked')) {
+      $(this).addClass("scale-up");
+    } else {
+      $(this).removeClass("scale-up");
+    }
+    // Show target tab-content (use class="hidden")
+  });
 });

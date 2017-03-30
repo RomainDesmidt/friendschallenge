@@ -1,5 +1,5 @@
 
-<div class="wrapper-cover-picture">
+<div class="<%= sport_cover_css_class(@sport_names) %>">
   <div class="container">
     <div class= "slogan">
       <h1>TROUVE TA COURSE, <br>INVITE TES POTES.</h1>
@@ -28,7 +28,7 @@
                   <% end %>
                   </div>
                   <div class="card-description-race-index text-center" style="<%= "background: #{multi_linear_background_for(race.sports)};"%>">
-                      <p><%= race.date %></p>
+                      <p><%= l(race.date, format: '%d %B %Y') %></p>
                       <h2><%= race.name.upcase %></h2>
                       <h4><%= race.total_distance %> km</h4>
                   </div>
