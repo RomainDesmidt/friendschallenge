@@ -525,10 +525,10 @@ races_attributes = [
       name: "LES FOULÉES NOCTURNES DE L’ÉLÉPHANT",
       description:"Avec de nombreuses animations musicales sur le parcours et sur le site de départ/arrivée
       sous les Nefs des Machines, cette édition promet d’être une nouvelle fois sous le signe
-      de la fête de la course à pied, une ambiance ahurissante à la lumière des projecteurs !
+      de la fête de la course à pied, une ambiance ahurissante à la lumière des projecteurs !\n
       Le parcours (10 kilomètres environ) est inchangé par rapport à l’an dernier sauf qu’il se fera
       dans l’autre sens. Très roulant et en bord de Loire, vous terminerez par un passage au pied
-      des Anneaux de Buren illuminés",
+      des Anneaux de Buren illuminés\n",
       location: "Nantes, France",
       date: Date.new(2017,4,29),
       price: 15,
@@ -543,6 +543,31 @@ races_attributes = [
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/les_foulées_nantes/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/les_foulées_nantes/race.jpg"))
   },
+  {
+    # LES DEFIS QUIBERONNAIS 2017
+    # natation : 3km
+    attributes: {
+      name: "LES DEFIS QUIBERONNAIS",
+      description: "Les DEFIS QUIBERONNAIS invitent ses participants à nager en totale liberté, \n
+      au milieu de la nature authentique de la presqu'île de Quiberon, loin du monde, du béton et du bruit,\n
+      sans aucun artifice, ni autre aide qu'une combinaison (pour les non licenciés FFN) et une paire de lunettes.
+      L’esprit des épreuves est également de permettre à chacun de relever un défi sportif avec soi-même,\n
+      sur des parcours différents à la difficulté progressive.
+      Les parcours sont chronométrés avec classement général et par catégorie d’âge.",
+      location: "Quiberon, France",
+      date: Date.new(2017,7,29),
+      price: 20,
+      official_event_url: "https://www.quiberon-atlantique-natation.fr/les-defis-quiberonnais-2017/",
+      trail_map_url: "https://www.quiberon-atlantique-natation.fr/s/img/emotionheader5803779902.jpg?1485531592.1180.767px",
+      level: "intermédiaire",
+      status: "open"
+    },
+    sports: {
+      natation: 3
+    },
+    trail_map_picture: File.new(Rails.root.join("db/fixtures/images/defi_de_quiberon/map.jpg")),
+    picture: File.new(Rails.root.join("db/fixtures/images/defi_de_quiberon/race.jpg"))
+  }
 ]
 
 races_attributes.each do |race_attributes|
