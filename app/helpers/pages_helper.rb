@@ -1,4 +1,21 @@
 module PagesHelper
+
+  def sport_cover_css_class(sport_names)
+    css_class = "wrapper-cover-picture"
+    return css_class unless sport_names
+
+    case sport_names[0]
+    when "Cyclisme"
+      css_class += " wrapper-cover-cycling"
+    when "Course à pied"
+      css_class += " wrapper-cover-run"
+    when "Natation"
+      css_class += " wrapper-cover-swim"
+    end
+
+    return css_class
+  end
+
   def linear_background_for(sport)
     case sport.name
     when "Course à pied" then "rgba(253,231,76,0.9)"

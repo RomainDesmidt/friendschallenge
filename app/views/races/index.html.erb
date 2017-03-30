@@ -1,5 +1,5 @@
 
-<div class="wrapper-cover-picture">
+<div class="<%= sport_cover_css_class(@sport_names) %>">
   <div class="container">
     <div class= "slogan">
       <h1 class="title">VOICI TA<br>LISTE DE COURSES</h1>
@@ -7,7 +7,10 @@
   </div>
 </div>
 <div class="box">
-<%= link_to "Retourner pour chercher une autre course", root_path %>
+  <%= link_to root_path, class: "link-back-root" do%>
+    <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+    <span class= "link-back-root-text">        trouve une autre course</span>
+  <% end %>
 <div class="results-wrapper-index">
   <div class="container_index-full">
     <div class="row">
@@ -28,7 +31,7 @@
                   <% end %>
                   </div>
                   <div class="card-description-race-index text-center" style="<%= "background: #{multi_linear_background_for(race.sports)};"%>">
-                      <p><%= race.date %></p>
+                      <p><%= l(race.date, format: '%d %B %Y') %></p>
                       <h2><%= race.name.upcase %></h2>
                       <h4><%= race.total_distance %> km</h4>
                   </div>

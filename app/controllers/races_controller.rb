@@ -2,10 +2,12 @@ class RacesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    if params[:search][:sports_name].nil?
+    @sport_names = params[:search][:sports_name]
+
+    if @sport_names.nil?
       @races = Race.all
     else
-      @races = Race.joins(:sports).where("sports.name IN (?)", params[:search][:sports_name])
+      @races = Race.joins(:sports).where("sports.name IN (?)", @sport_names)
     end
 
     unless params[:search][:place].nil?
