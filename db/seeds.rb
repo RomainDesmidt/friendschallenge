@@ -518,6 +518,31 @@ races_attributes = [
     trail_map_picture: File.new(Rails.root.join("db/fixtures/images/marathon_de_nantes/map.jpg")),
     picture: File.new(Rails.root.join("db/fixtures/images/marathon_de_nantes/race.jpg"))
   }
+  {
+    # LES FOULÉES NOCTURNES DE L’ÉLÉPHANT BY DECATHLON
+    # Course 10
+    attributes: {
+      name: "LES FOULÉES NOCTURNES DE L’ÉLÉPHANT",
+      description:"Avec de nombreuses animations musicales sur le parcours et sur le site de départ/arrivée
+      sous les Nefs des Machines, cette édition promet d’être une nouvelle fois sous le signe
+      de la fête de la course à pied, une ambiance ahurissante à la lumière des projecteurs !
+      Le parcours (10 kilomètres environ) est inchangé par rapport à l’an dernier sauf qu’il se fera
+      dans l’autre sens. Très roulant et en bord de Loire, vous terminerez par un passage au pied
+      des Anneaux de Buren illuminés",
+      location: "Nantes, France",
+      date: Date.new(2017,4,29),
+      price: 15,
+      trail_map_url: "https://www.marathondenantes.com/parcours-foulees/",
+      official_event_url: "https://www.marathondenantes.com/foulees/",
+      level: "débutant", # tu choisis manuellement
+      status: "closed" # pareil
+    },
+    sports: {
+      course_a_pied: 10,
+    },
+    trail_map_picture: File.new(Rails.root.join("db/fixtures/images/les_foulées_nantes/map.jpg")),
+    picture: File.new(Rails.root.join("db/fixtures/images/les_foulées_nantes/race.jpg"))
+  },
 ]
 
 races_attributes.each do |race_attributes|
