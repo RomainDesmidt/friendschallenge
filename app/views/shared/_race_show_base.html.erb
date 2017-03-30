@@ -7,7 +7,7 @@
 <% end %>
 <div class="container-full">
   <div class="row">
-    <div class="col-xs-9 col-md-10">
+    <div class="<%= view_mode == :race ? 'col-xs-12 col-md-12' : 'col-xs-9 col-md-10' %>">
       <div class="raceshow-wrapper" style="<%= "background-image: #{multi_linear_background_for(race.sports)}, url('#{cl_image_path @race.picture, effect: "grayscale"}'); background-size: cover;" %>">
         <div class="event-info">
             <p><%= l(race.date, format: '%d %B %Y') %></p>
@@ -34,8 +34,8 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-3 col-md-2">
-      <% if view_mode == :race_group %>
+    <% if view_mode == :race_group %>
+      <div class="col-xs-3 col-md-2">
         <div class="race-group-friends">
           <ul class="list-unstyled">
             <% @memberships.each do |membership| %>
@@ -74,8 +74,8 @@
             </div>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 </div>
 <div class="trail-map-and-interested-wrapper">
 
@@ -100,7 +100,7 @@
           <% elsif group_membership.status == "Intéressé" %><!-- current user interested -->
             <%= link_to "JE CONFIRME !", confirm_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
           <% elsif group_membership.status == "Confirmé" %>
-            <%= link_to "JE DOIS ANNULER :/", cancel_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
+            <%= link_to "JE DOIS ANNULER 😞", cancel_group_membership_path(group_membership), method: :patch, class: "btn-interested"%>
           <% end %>
         <% end %>
         <div class="description-text">

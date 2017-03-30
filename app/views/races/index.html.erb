@@ -21,7 +21,7 @@
               <%= link_to race_path(race) do %>
                 <div class="card-index" style="<%= "background-image: url('#{cl_image_path race.picture, effect: "grayscale"}'); background-size: cover;"%>">
                   <div class="card-date-J-index"> J - <%=(race.date - Date.today).to_i %></div>
-                  <div class="level-sticker">
+                  <div class="card-level-index">
                   <% if race.level == "débutant" %>
                     <span class="label label-success">Débutant</span>
                   <% elsif race.level == "intermédiaire" %>
