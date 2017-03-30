@@ -58,18 +58,18 @@
           </ul>
         </div>
         <% if group_membership %>
-          <div class="sharing">
-            <p class="info-sharing-link">CHAUFFE TES POTES: </p>
+          <div class="sharing text-center">
+            <p class="info-sharing-link">CHAUFFE TES POTES</p>
             <div class="sharing-options">
               <ul class="list-inline">
                 <li>
                   <%= link_to "http://www.facebook.com/share.php?u=#{race_group_url(race_group)}", onclick: "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" do %>
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                    <i class="fa fa-facebook-official sharing-buttons" aria-hidden="true"></i>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to race_group_url(race_group) do %>
-                    <i class="fa fa-link" aria-hidden="true"></i>
+                    <i class="fa fa-link sharing-buttons" aria-hidden="true"></i>
                   <% end %>
                 </li>
               </ul>
@@ -88,11 +88,9 @@
             <%= cl_image_tag race.trail_map_picture %>
         </div>
       </div>
-
       <div class="col-xs-12 col-md-4">
-
+      <div class="interest-and-description text-center">
         <% if view_mode == :race %>
-          <div class="interest-and-description text-center">
             <% if group_membership %><!-- current user already member -->
               <%= link_to "VOIR MON GROUPE", race_group_path(race_group), class: "btn-interested" %>
             <% else %>

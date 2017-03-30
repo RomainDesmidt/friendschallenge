@@ -120,6 +120,16 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-direction: column;
+  margin-left: -20px;
+}
+
+.sharing-buttons {
+  font-size: 40px;
+  background: -webkit-linear-gradient(-225deg, rgba(0,107,166,0.6) 0%,rgba(239,62,54,0.6) 50%,rgba(253,231,76,0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 10px 0px;
 }
 
 .sharing-options {
@@ -129,10 +139,8 @@
 }
 
 .info-sharing-link {
-  background: -webkit-linear-gradient(-225deg, rgba(0,107,166,0.6) 0%,rgba(239,62,54,0.6) 50%,rgba(253,231,76,0.8) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 20px;
+  color: #202126;
+  font-size: 17px;
   margin-top: 20px;
 }
 
