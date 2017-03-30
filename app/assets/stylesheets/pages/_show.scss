@@ -19,6 +19,15 @@
   position: relative;
 }
 
+.my-status {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 30px;
+
+}
+
 .event-info {
   // top: 30px;
   // left: 20px;
@@ -90,6 +99,27 @@
   font-size: 17px;
   text-align: justify;
   margin-bottom: 20px;
+}
+
+.fb-image {
+  cursor: pointer;
+}
+
+.sharing {
+  display: flex;
+  align-items: center;
+}
+
+.sharing-options {
+  display: inline-block !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-sharing-link {
+  color: #202126;
+  font-size: 20px;
+  margin-top: 20px;
 }
 
 .interested-description {

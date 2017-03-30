@@ -1,0 +1,104 @@
+.link-back-root{
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: -5px;
+  transition: all .2s ease-in-out;
+  background-color: rgba(238,238,238,.7);
+  // opacity: 0.5;
+  padding: 10px 100px 10px 10px;
+  // border-radius: 20px;
+}
+
+.link-back-root-text{
+  margin-left: 100px
+}
+
+.link-back-root:hover{
+  opacity: 0.9;
+  color: black;
+  text-decoration: none;
+  // font-size: 21px;
+}
+
+
+.results-wrapper-index {
+  margin-top: 80px;
+}
+
+.race-index-card {
+   margin-bottom: 20px;
+  // margin-top: 10px;
+  a {
+    text-decoration: none;
+  }
+
+}
+
+.dropdown {
+  text-align: center;
+}
+
+.card-index {
+  height: 300px;
+
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover !important;
+
+  color: white;
+  position: relative;
+  margin-bottom: 20px;
+
+ //  top: 68px;
+ // -webkit-transition: .2s ease-in-out;
+ //  transition: .2s ease-in-out;
+}
+
+.gm-style img {
+  max-width: 200px;
+}
+
+.card-date-J-index {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.6);;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.card-level-index {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card-description-race-index {
+  position:absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+
+
+  p {
+  // margin-top: 20px;
+  }
+
+  h2 {
+  margin-bottom: 0px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 22px;
+
+  // padding: 10px;
+  }
+  h4 {
+  margin-top: 5px;
+  font-weight: 700;
+  }
+}
+
+.container_index-full {
+  margin-left: 10px;
+  margin-right: 10px;
+}
