@@ -24,10 +24,8 @@
           <% end %>
         </div>
         <div class="my-status">
-          <% if view_mode == :race %>
-            <% if group_membership.nil? %>
-              <span class="label label-default">Je n'ai pas encore répondu</span>
-             <% elsif group_membership.status == "Intéressé" %>
+          <% if view_mode == :race_group %>
+            <% if group_membership.status == "Intéressé" %>
               <span class="label label-primary">Je suis intéressé</span>
             <% elsif group_membership.status == "Confirmé" %>
               <span class="label label-success">J'ai confirmé</span>
@@ -78,7 +76,6 @@
         <% end %>
       <% end %>
     </div>
-
 </div>
 <div class="trail-map-and-interested-wrapper">
 
