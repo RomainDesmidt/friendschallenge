@@ -24,7 +24,7 @@
           <% end %>
         </div>
         <div class="my-status">
-          <% if view_mode == :race_group %>
+          <% if view_mode == :race_group && group_membership %>
             <% if group_membership.status == "Intéressé" %>
               <span class="label label-primary">Je suis intéressé</span>
             <% elsif group_membership.status == "Confirmé" %>
