@@ -22,26 +22,32 @@
 .my-status {
   position: absolute;
   top: 20px;
-  left: 20px;
+  right: 20px;
   color: white;
   font-size: 30px;
 
 }
 
 .event-info {
-  // top: 30px;
-  // left: 20px;
-  margin-top: 20vh;
+  bottom: 70px;
+  left: 40px;
+  text-shadow: 1px 1px 3px black;
   color: white;
+  position: absolute;
+  p {
+    font-weight: 500;
+  }
 }
 
-.event-keypoints {
-  top: 120px;
-  left: 20px;
-  height: 20vh;
-  background: none;
-  color: white;
-}
+// .event-keypoints {
+//   top: 120px;
+//   left: 20px;
+//   height: 20vh;
+//   background: none;
+//   color: white;
+//   font-weight: 300;
+
+// }
 
 #event-title {
   font-size: 40px;
@@ -73,7 +79,7 @@
 .level-sticker {
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 40px;
 }
 
 .race-sports {
@@ -87,27 +93,33 @@
 }
 
 .trail-map-and-interested-wrapper {
-  margin-top: -110px;
+
 }
 
-.trail-map img {
+.trail-map {
+    margin-top: -50px;
+
+    img {
   border: 1px solid white;
   width: 100%;
+  }
 }
+
+
 
 .description-text {
   font-size: 17px;
   text-align: justify;
   margin-bottom: 20px;
-}
-
-.fb-image {
-  cursor: pointer;
+  font-weight: 300;
+  padding: 20px 20px;
+  font-size: 14px;
 }
 
 .sharing {
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 
 .sharing-options {
@@ -117,16 +129,11 @@
 }
 
 .info-sharing-link {
-  color: #202126;
+  background: -webkit-linear-gradient(-225deg, rgba(0,107,166,0.6) 0%,rgba(239,62,54,0.6) 50%,rgba(253,231,76,0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 20px;
   margin-top: 20px;
-}
-
-.interested-description {
-  // justify-content: center;
-  align-items: center;
-  // height: 60vh;
-  margin-top: 130px;
 }
 
 .btn-interested {
@@ -141,13 +148,35 @@
   border: none;
 }
 
-.my-group {
-  color: white;
-  margin-top: 45px;
+// .my-group {
+//   color: white;
+//   margin-top: 45px;
+// }
+.race-group-friends {
+  margin-left: -40px;
+  margin-top: 20px;
 }
 
 .member-status {
   color: #202126;
   font-size: 15px;
   margin-top: 5px;
+}
+
+.interest-and-description {
+  margin-top: 20px;
+}
+
+.member-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.name-and-status {
+  font-weight: 300;
+  padding-left: 10px;
+}
+.fb-image {
+  height: 50px;
+  width: 50px;
 }

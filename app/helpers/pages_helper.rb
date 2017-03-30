@@ -1,8 +1,8 @@
 module PagesHelper
   def linear_background_for(sport)
     case sport.name
+    when "Course à pied" then "rgba(253,231,76,0.9)"
     when "Cyclisme" then "rgba(239,62,54,0.6)"
-    when "Course à pied" then "rgba(253,231,76,0.8)"
     when "Natation" then "rgba(0,107,166,0.6)"
     else
       "rgba(230,230,230,1)"
@@ -13,12 +13,20 @@ module PagesHelper
     gradients = ""
     level = 00
 
-    sports.each do |sport|
+    sport_priority = {
+      "Course à pied" => 1,
+      "Cyclisme" => 2,
+      "Natation" => 3
+    }
+
+    sorted_sports = sports.sort_by { |sport| sport_priority[sport.name] || 500 }
+
+    sorted_sports.each do |sport|
       gradients += "#{linear_background_for(sport)} #{level}%, "
       level += (100 / sports.count)
     end
 
-    "linear-gradient(-225deg, #{gradients} rgba(255,255,255,0.5) 100%)"
+    "linear-gradient(0deg, #{gradients} rgba(255,255,255,0) 100%)"
   end
 
   def picture_path_for(sport)
