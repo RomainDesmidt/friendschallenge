@@ -8,13 +8,23 @@
 
 
 # races: description/name/place/distance//date/price/official_event_url/picture_race/trail_map_url/trail_map_picture/level/status
+puts "Deleting all Images from Cloudinary"
+Cloudinary::Api.delete_all_resources
+puts "Cleaning User..."
 User.destroy_all
+puts "Cleaning Race..."
 Race.destroy_all
+puts "Cleaning Sport..."
 Sport.destroy_all
+puts "Cleaning RaceSport..."
 RaceSport.destroy_all
+puts "Cleaning RaceGroup..."
 RaceGroup.destroy_all
+puts "Cleaning Usersport..."
 UserSport.destroy_all
+puts "Cleaning GroupMembership..."
 GroupMembership.destroy_all
+
 
 # /////////////////////////////////////////////////////////////////////////////////////////////
 # ////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +67,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Natation", "Course à pied"]
   },
 
@@ -74,7 +84,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Cyclisme", "Course à pied"]
 
   },
@@ -92,7 +102,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Cyclisme"]
   },
 
@@ -109,7 +119,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Natation", "Cyclisme"]
   },
 
@@ -126,7 +136,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Natation"]
   },
 
@@ -143,7 +153,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Course à pied"]
   },
 
@@ -160,7 +170,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Cyclisme"]
   },
 
@@ -177,7 +187,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Cyclisme", "Course à pied"]
   },
 
@@ -194,7 +204,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Natation", "Cyclisme"]
   },
 
@@ -211,7 +221,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Course à pied"]
   },
 
@@ -228,7 +238,7 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Cyclisme"]
   },
 
@@ -245,18 +255,18 @@ users_attributes = [
       level: user_levels.sample
     },
     medical_certificate: File.new(Rails.root.join("db/fixtures/images/certificat_medical/certificat_medical.png")),
-    profile_picture_url: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
+    profile_picture: "http://lorempixel.com/300/300/people/#{rand(40) + 1}/",
     sports_names: ["Natation", "Course à pied"]
   }
 ]
 
 
 users_attributes.each do |user_attributes|
-  puts user_attributes[:attributes][:first_name]
+  #puts user_attributes[:attributes][:first_name]
   user = User.new(user_attributes[:attributes])
   user.medical_certificate = user_attributes[:medical_certificate]
-  user.remote_profile_picture_url = user_attributes[:profile_picture_url]
-  sleep 0.8
+  user.profile_picture = user_attributes[:profile_picture]
+  #sleep 0.8
   user.save
 
   sports_names = user_attributes[:sports_names]
@@ -267,7 +277,11 @@ users_attributes.each do |user_attributes|
     end
   end
 end
-
+User.all.each do |user|
+p user.first_name
+p user.medical_certificate
+p user.profile_picture
+end
 
 # # /////////////////////////////////////////////////////////////////////////////////////////////
 # # ////////////////////////////////////////////////////////////////////////////////////////////
@@ -581,7 +595,6 @@ races_attributes.each do |race_attributes|
 
 
   sports = race_attributes[:sports]
-  p sports
 
   sports_names_map = {
     course_a_pied: "Course à pied",
@@ -599,6 +612,12 @@ races_attributes.each do |race_attributes|
 
   race.calculate_total_distance!
   race.save
+end
+
+Race.all.each do |race|
+  p race.name
+  p race.picture
+  p race.trail_map_picture
 end
 
 # # /////////////////////////////////////////////////////////////////////////////////////////////
@@ -660,217 +679,3 @@ race_groups_attributes.each do |race_group_attributes|
   end
 end
 
-# name_race_group.each_with_index do |name, index|
-#   jane = User.find_by_first_name("Jane")
-#   race_group = RaceGroup.create(
-#     user: jane,
-#     race: Race.find_by_name("Marathon de Nantes"),
-#     # status: ,
-#     token: SecureRandom.hex(8) #numero unique aléatoire
-#     )
-#   3.times do
-#     GroupMembership.create(
-#       user: jane,
-#       race_group: race_group
-#       ),
-#     user_random = User.order("RANDOM()").limit(1) unless user_random != jane
-#     GroupMembership.create(
-#       user: user_random,
-#       race_group: race_group
-#       )
-#   end
-# end
-
-# name_race_group.each_with_index do |name, index|
-#   charles = User.find_by_first_name("Charles")
-#   race_group = RaceGroup.create(
-#     user: charles,
-#     race: Race.find_by_name("Triathlon de Lorient"),
-#     # status: ,
-#     token: SecureRandom.hex(8) #numero unique aléatoire
-#     )
-#   3.times do
-#     GroupMembership.create(
-#       user: charles,
-#       race_group: race_group
-#       ),
-#     user_random = User.order("RANDOM()").limit(1) unless user_random != charles
-#     GroupMembership.create(
-#       user: user_random,
-#       race_group: race_group
-#       )
-#   end
-# end
-# champions_mon_frere = RaceGroup.create!(
-#   user: momo,
-#   race: marathon_de_nantes,
-#   token: SecureRandom.hex(8) #numero unique aléatoire
-#   )
-
-# les_lorientais = RaceGroup.create!(
-#   user: charles,
-#   race: lorient_triathlons,
-#   token: SecureRandom.hex(8) #numero unique aléatoire
-#   )
-
-# les_nantais = RaceGroup.create!(
-#   user: jody,
-#   race: anjou_m,
-#   token: SecureRandom.hex(8) #numero unique aléatoire
-#   )
-
-# les_ricains = RaceGroup.create!(
-#   user: tony,
-#   race: breizh_start,
-#   token: SecureRandom.hex(8) #numero unique aléatoire
-#   )
-
-# les_potos = RaceGroup.create!(
-#   user: kylian,
-#   race: quiberon_triathlons,
-#   token: SecureRandom.hex(8) #numero unique aléatoire
-#   )
-
-# les_invincibles = RaceGroup.create!(
-#   user: lebron,
-#   race: marathon_de_la_loire,
-#   token: SecureRandom.hex(8) #numero unique aléatoire
-#   )
-
-# rouge = RaceGroup.create!(
-#   user: momo,
-#   race: anjou_s,
-#   token: SecureRandom.hex(8) #numero unique aléatoire
-#   )
-
-# # /////////////////////////////////////////////////////////////////////////////////////////////
-# # ////////////////////////////////////////////////////////////////////////////////////////////
-# # ///////////////////////////////////////////////////////////////////////////////////////////
-
-# # group_memberships: user_id/user_race_id/status
-
-# status_group_memberships = ["inscrit", "interessé", "pas interessé", "non répondu"]
-
-# # 1er groupe: champions_mon_frere
-
-# GroupMembership.create!(
-#   user: momo,
-#   race_group: champions_mon_frere,
-#   status_group_memberships: "inscrit"
-# )
-# GroupMembership.create!(
-#   user: larry,
-#   race_group: champions_mon_frere,
-#   status_group_memberships: status_group_memberships.sample
-# )
-
-
-# # 2eme groupe: les_lorientais
-# GroupMembership.create!(
-#   user: charles,
-#   race_group: les_lorientais,
-#   status_group_memberships: "inscrit"
-# )
-# GroupMembership.create!(
-#   user: chuck,
-#   race_group: les_lorientais,
-#   status_group_memberships: status_group_memberships.sample
-# )
-# GroupMembership.create!(
-#   user: john,
-#   race_group: les_lorientais,
-#   status_group_memberships: status_group_memberships.sample
-# )
-# GroupMembership.create!(
-#   user: tony,
-#   race_group: les_lorientais,
-#   status_group_memberships: status_group_memberships.sample
-# )
-
-# # 3eme groupe: les_nantais
-# GroupMembership.create!(
-#   user: jody,
-#   race_group: les_nantais,
-#   status_group_memberships: "inscrit"
-# )
-# GroupMembership.create!(
-#   user: momo,
-#   race_group: les_nantais,
-#   status_group_memberships: "inscrit"
-# )
-# GroupMembership.create!(
-#   user: momo,
-#   race_group: les_nantais,
-#   status_group_memberships: status_group_memberships.sample
-# )
-
-# # 4ème groupe: les_ricains
-# GroupMembership.create!(
-#   user: tony,
-#   race_group: les_ricains,
-#   status_group_memberships: "inscrit"
-# )
-# GroupMembership.create!(
-#   user: john,
-#   race_group: les_ricains,
-#   status_group_memberships: status_group_memberships.sample
-# )
-# GroupMembership.create!(
-#   user: larry,
-#   race_group: les_ricains,
-#   status_group_memberships: status_group_memberships.sample
-# )
-# GroupMembership.create!(
-#   user: lebron,
-#   race_group: les_ricains,
-#   status_group_memberships: status_group_memberships.sample
-# )
-
-# # 5ème groupe: les_potos
-# GroupMembership.create!(
-#   user: kylian,
-#   race_group: les_potos,
-#   status_group_memberships: "inscrit"
-# )
-# GroupMembership.create!(
-#   user: momo,
-#   race_group: les_potos,
-#   status_group_memberships: status_group_memberships.sample
-# )
-# GroupMembership.create!(
-#   user: charles,
-#   race_group: les_potos,
-#   status_group_memberships: status_group_memberships.sample
-# )
-
-# # 6ème groupe: les_invincibles
-# GroupMembership.create!(
-#   user: lebron,
-#   race_group: les_invincibles,
-#   status_group_memberships: status_group_memberships.sample
-# )
-
-# GroupMembership.create!(
-#   user: chuck,
-#   race_group: les_invincibles,
-#   status_group_memberships: status_group_memberships.sample
-# )
-
-# GroupMembership.create!(
-#   user: larry,
-#   race_group: les_invincibles,
-#   status_group_memberships: status_group_memberships.sample
-# )
-
-# # 7ème groupe: rouge
-# GroupMembership.create!(
-#   user: momo,
-#   race_group: rouge,
-#   status_group_memberships: status_group_memberships.sample
-# )
-
-# GroupMembership.create!(
-#   user: jody,
-#   race_group: rouge,
-#   status_group_memberships: status_group_memberships.sample
-# )
