@@ -33,4 +33,5 @@ Rails.application.routes.draw do
 
   # static pages
   get 'styleguide', to: 'pages#styleguide'
+
 end

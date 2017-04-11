@@ -32,9 +32,17 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
-group :development, :test do
-  gem 'binding_of_caller'
+group :development do # Stuff you do not want in :test env
   gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+
+group :development, :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'launchy'
+  gem 'minitest-reporters'
 
   gem 'pry-byebug'
   gem 'pry-rails'
